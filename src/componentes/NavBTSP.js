@@ -13,9 +13,9 @@ function Navegador() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{color: "#53a13b", borderColor: "#53a13b"}} />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Nav className="justify-content-center">
-            <Link className="link"  to="#features">Inicio</Link>
+            <Link className="link"  to="/">Inicio</Link>
             <Link className="link" to="/LayoutCatalogo">Catálogo</Link>
-            <Link className="link" to="#pricing">Ayuda</Link>
+            <Link className="link" to="/LayoutPeliculas">Peliculas</Link>
             <Boton  title="Registrarse" />
           </Nav>
         </Navbar.Collapse>
