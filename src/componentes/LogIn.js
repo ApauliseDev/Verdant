@@ -6,7 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import '../estilos/footer.css'
 function LogIn() {
 
-console.log("Juancho")
+
 
   const [action,setAction] = useState("Login");
 
