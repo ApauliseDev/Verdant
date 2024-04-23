@@ -1,0 +1,38 @@
+
+.slick-slide div{
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 20px !important;
+
+
+    
+}
+.slick-slide div img{
+    border-radius: 16px;
+    width: 329px;
+    height: 184px;
+
+ }
+ .slick-initialized .slick-slide{
+
+    
+ }
+
+ .slick-slide slick-active{
+    width: 328px !important;
+ }
+
+ .slick-next{
+    right: 0px;
+ }
+
+
+ .container {
+    max-width: 1750px !important;
+ }
+
+ .slick-prev {
+    left: 0px !important;
+
+
+ }

@@ -1,0 +1,87 @@
+
+
+.carrusel-container {
+    width: 90%; /* Ancho del carrusel */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+  }
+  
+  .slick-slide img {
+    width: 100%; /* Ajusta el tamaño de las imágenes al 100% del contenedor */
+  }
+  
+
+  .maincontenedor{
+display: flex;
+align-items: center;
+width: 100%;
+
+background: linear-gradient(to bottom,#000002,#122B0F, #3D9133); /* Define el degradado inicial */
+
+flex-direction: column;
+
+  }
+
+  .listamain{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-right: 10px;
+    object-fit: contain;
+
+  }
+  
+  .listamain li {
+    padding : 10px; /* Ajusta el margen entre cada elemento de la lista */
+    border-radius: 10px;
+  }
+
+
+  
+  .listamain li img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para transformaciones y sombra */
+    width: 156px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    max-width: 100%;
+    object-fit: cover;
+    height: 231px; /* Mantiene la proporción de aspecto de las imágenes */
+  }
+
+  .listamain li img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Añade una sombra brillante alrededor de la imagen */
+  }
+
+  .intermedio { 
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+
+    
+
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    flex: 1;
+    background-color: #4d7a44;
+    padding: 20px;
+    margin: 10px;
+    width: 336px;
+    height: 102px;
+    color: antiquewhite;
+  }
+
+  .icon {
+    font-size: 40px;
+    margin-right: 10px;
+
+
+  }
+

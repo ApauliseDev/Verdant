@@ -1,0 +1,6 @@
+.app{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    background:  linear-gradient(to bottom,#000002,#122B0F, #3D9133);
+}

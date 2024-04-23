@@ -1,0 +1,72 @@
+
+@font-face {
+  font-family: 'Dokdo';
+  src: url('../fonts/Dokdo/Dokdo-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel bold';
+  src: url('../fonts/Cinzel/Cinzel-Bold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+  
+@font-face {
+  font-family: 'Cinzel regular';
+  src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel semibold';
+  src: url('../fonts/Cinzel/Cinzel-SemiBold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+  .imagen-fondo {
+    background-image: url('/public/Imagenes/TLOU.jpg');
+    background-size: cover; 
+    background-position: center;  
+    width: 100%; 
+    height: 100vh;  
+
+  
+
+
+
+
+  }
+  
+.encabezado{
+
+  color: #fff;
+  margin-top: 260px;
+  margin-left: 10%;
+  margin-right: 60%;
+  font-size: 40px;
+
+ 
+
+
+
+}
+
+.texto{
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: 'Cinzel regular';
+
+}
+.title {
+  font-family:'Cinzel bold' ;
+  line-height: 1;
+  font-size: 60px;
+
+
+}
