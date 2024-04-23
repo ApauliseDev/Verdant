@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import '../estilos/Pelislider.css'
 
 
-function Pelislider() {
+function Pelislider(props) {
     var settings = {
         dots: false,
         lazyLoad:true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 5,
         slidesToScroll: 5,
         initialSlide: 0,
@@ -20,7 +20,8 @@ function Pelislider() {
                 settings: {
                   slidesToShow: 4,
                   slidesToScroll: 4,
-                  initialSlide: 2
+                  initialSlide: 2,
+
                 }
               },
           {
@@ -51,7 +52,11 @@ function Pelislider() {
       };
   return (
     <div className="container">
+                     <div>
+    <h2  style={ {color : "#fff", position: "absolute", fontFamily:'Dokdo', marginLeft:"20px", fontSize:"40px"}} > {props.tituloSlider} </h2>
+  </div>
       <Slider {...settings}>
+
         <div>
           <img src="/Imagenes/guerra4.jpg"  alt='guerra'/>
         </div>

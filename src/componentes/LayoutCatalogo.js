@@ -7,6 +7,7 @@ import {SliderCatalogo} from './SliderCatalogo'
 import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
 
+
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
     <img src={imageUrl} alt={title} style={{ width: '100%', height: 'auto' }} />
@@ -58,11 +59,11 @@ function LayoutCatalogo() {
     <div className=''>
     <SliderCatalogo/>
         <SImplePaper/>
-        <Pelislider/>
-        <Pelislider/>
-        <Pelislider/>
-        <Pelislider/>
-        <Pelislider/>
+        <Pelislider tituloSlider = "Aventura"/>
+        <Pelislider tituloSlider = "Terror"/>
+        <Pelislider tituloSlider = "Romance"/>
+        <Pelislider tituloSlider = "Comedia"/>
+        <Pelislider tituloSlider = "Guerra"/>
 
 
 

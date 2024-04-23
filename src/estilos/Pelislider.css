@@ -13,10 +13,7 @@
     height: 184px;
 
  }
- .slick-initialized .slick-slide{
 
-    
- }
 
  .slick-slide slick-active{
     width: 328px !important;
@@ -24,15 +21,29 @@
 
  .slick-next{
     right: 0px;
+    margin-top: 20px;
  }
 
+ .slick-next:before{
+
+   font-size: 30px;
+   color: #3D9133
+ }
+ .slick-prev:before{
+
+   font-size: 30px;
+   color: #3D9133
+ }
 
  .container {
     max-width: 1750px !important;
+    margin-bottom: 20px ;
+
  }
 
  .slick-prev {
-    left: 0px !important;
-
+    left: 0px ;
 
  }
+
+ 

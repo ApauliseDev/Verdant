@@ -26,6 +26,7 @@ function SImplePaper() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
+          marginBottom: 10,
           display: "flex",
           justifyContent: "center",
           flexWrap: "wrap",
