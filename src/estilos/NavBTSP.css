@@ -27,7 +27,7 @@
     margin-left: 5px;
     text-decoration: none;
     font-family: 'Cinzel semibold';
-    margin: auto;
+    
   }
 
   .link { 
@@ -61,4 +61,10 @@
 .link:hover::before, 
 .link:hover::after {
     width: 100%; /* Ancho del subrayado al hacer hover */
+}
+
+@media screen and (max-width: 992px) {
+  .boton-regist{
+    display: none;
+  }
 }

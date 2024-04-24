@@ -17,7 +17,7 @@ function Navegador() {
             <Link className="link" to="/LayoutCatalogo">Catálogo</Link>
             <Link className="link" to="/LayoutPeliculas">Peliculas</Link>
           </Nav>
-          <Boton  title="Registrarse" />
+          <Boton className="boton-regist"  title="Registrarse" />
         </Navbar.Collapse>
       </Container>
     </Navbar>

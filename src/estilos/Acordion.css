@@ -45,7 +45,7 @@
 
 
 #border-c{
-  width: 1700px;
+  width: 90%;
   background-color: #3D9133;
   border-color: #3D9133;
   border: none;
@@ -69,16 +69,19 @@
   font-size: 17px;
   background-color:rgb(36, 69, 29);
   color: #fff;
-
-
 }
 
 #FAQ {
   font-family:'Cinzel bold'; 
   color: antiquewhite;
-
 }
 
-@media screen and (max-width: 1400px){
-  
+@media screen and (max-width: 1280px){
+  #card-head {
+    font-size: 15px;
+  }
+
+  #cuerpo{
+    font-size: 13px;
+  }
 }

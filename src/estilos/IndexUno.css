@@ -56,6 +56,10 @@
   font-size: 60px;
 }
 
+.Botones-index{
+  display: flex;
+}
+
 @media screen and (max-width: 1400px) {
   .title {
     font-size: 40px;
@@ -63,11 +67,78 @@
   .encabezado{
     margin-top: 200px;
     margin-left: 10%;
-    margin-right: 60%;
+    margin-right: 50%;
   }
   .texto{
     padding-top: 5px;
-    font-size: 15px;
+    font-size: 20px;
   
   }
+}
+
+@media screen and (max-width: 992px) {
+  .title {
+    font-size: 30px;
+  }
+  .encabezado{
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .texto{
+    margin: auto;
+    font-size: 15px;
+    font-family:'Cinzel bold' ;
+  }
+
+  .Botones-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #boton-link{
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 814px) {
+  .title {
+    font-size: 20px;
+  }
+  .encabezado{
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .texto{
+    margin: auto;
+    font-size: 12px;
+    font-family:'Cinzel bold' ;
+  }
+
+  .Botones-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top:10px;
+  }
+
+  #boton-link{
+    margin: 5px;
+  }
+
 }

@@ -47,7 +47,7 @@ function Main() {
         </div>
         <div className="card">
         <CalendarMonthIcon fontSize="large"></CalendarMonthIcon>
-          <p>Estate atento sobre los ultimos lanzamientos.</p>
+          <p>No te pierdas los utlimos lanzamientos y se el primero en dejarnos saber tu opinion</p>
         </div>
         <div className="card">
         <PlaylistAddIcon fontSize="large"></PlaylistAddIcon>
