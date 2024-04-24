@@ -5,7 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import '../estilos/Pelislider.css'
 
 
+
 function Pelislider(props) {
+
+
+
     var settings = {
         dots: false,
         lazyLoad:true,
@@ -55,10 +59,10 @@ function Pelislider(props) {
                      <div>
     <h2  style={ {color : "#fff", position: "absolute", fontFamily:'Dokdo', marginLeft:"20px", fontSize:"40px"}} > {props.tituloSlider} </h2>
   </div>
-      <Slider {...settings}>
+      <Slider {...settings}> 
 
         <div>
-          <img src="/Imagenes/guerra4.jpg"  alt='guerra'/>
+          <img src="/Imagenes/planetaSimios.png"  alt='guerra'/>
         </div>
         <div>
         <img src="/Imagenes/Uncharted.jpg"  alt='guerra'/>
