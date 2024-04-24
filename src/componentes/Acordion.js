@@ -44,7 +44,7 @@ function Acordion() {
   
       <Accordion className="accordionWidth" >
       <div id="FAQ">
-        <h2  style={{fontSize:"40px"}} > Preguntas Frecuentes</h2>
+        <h2 > Preguntas Frecuentes</h2>
       </div>
         <Card id="border-c">
           <CustomToggle eventKey="0">

@@ -110,7 +110,7 @@
 
 @media screen and (max-width: 814px) {
   .title {
-    font-size: 20px;
+    font-size: 18px;
   }
   .encabezado{
     padding-top: 200px;
@@ -127,6 +127,7 @@
     margin: auto;
     font-size: 12px;
     font-family:'Cinzel bold' ;
+    text-align: center;
   }
 
   .Botones-index{
