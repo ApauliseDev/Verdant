@@ -44,4 +44,10 @@
     transition: background 0.3s ease-in-out; 
     background: linear-gradient(to left, #52A13B, #123D05); /* Cambia los valores de color según sea necesario */
 }
-  
+
+@media screen and (max-width: 1400px){
+  .boton-registrarse{
+    font-size: 15px;
+    width: 200px;
+  }
+}

@@ -20,8 +20,11 @@ function IndexUno() {
         <h1 className = "title"style={{ color: "#2DB11B" }}>SIN LÍMITES</h1>
         <p className="texto">¡Únete hoy mismo a nuestra comunidad de amantes del cine y las series! </p>
         <p className="texto"> Regístrate ahora para calificar, reseñar, acceder a contenido exclusivo y mucho más. ¡No esperes más!</p>
-        <Boton title='Unite Ahora' />
-        <Link to = "/LogIn"><Boton title='Ya tengo  Verdant' /> </Link>
+        <div style={{display:"flex"}}>
+          <Boton title='Unite Ahora' />
+          <Link to = "/LogIn"><Boton title='Ya tengo  Verdant' /> </Link> 
+        </div>
+
       </div>
     </div>
        <Main/> 
