@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import {SliderCatalogo} from './SliderCatalogo'
 import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
-
+import Navegador from './NavBTSP'
 
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
@@ -54,12 +54,34 @@ const MovieCarousel = ({ movies }) => {
 };
 
 
+
+
+
 function LayoutCatalogo() {
+
+const slider1Img = [
+  "/Imagenes/planetaSimios.png",
+  "/Imagenes/Uncharted.jpg",
+  "/Imagenes/guerra4.jpg",
+  "/Imagenes/guerra4.jpg" ,
+  "/Imagenes/guerra4.jpg" ,
+  "/Imagenes/guerra4.jpg" ,
+  "/Imagenes/guerra4.jpg" ,
+  "/Imagenes/guerra4.jpg" ,
+  "/Imagenes/guerra4.jpg" 
+]
+
+const infoImg = {
+  imgArray: slider1Img,
+  tituloSlider: "Aventura"
+}
+
   return (
     <div className=''>
+    <Navegador/>
     <SliderCatalogo/>
         <SImplePaper/>
-        <Pelislider tituloSlider = "Aventura"/>
+        <Pelislider  tituloSlider = "Aventura" />
         <Pelislider tituloSlider = "Terror"/>
         <Pelislider tituloSlider = "Romance"/>
         <Pelislider tituloSlider = "Comedia"/>

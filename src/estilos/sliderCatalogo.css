@@ -10,8 +10,11 @@
 height: 500px;
 display: flex;
 justify-content: center;
-
-
+margin-top: 120px;
+}
+.swiper-pagination{
+    bottom: 10px !important;
+    
 
 }
 #slideimg{

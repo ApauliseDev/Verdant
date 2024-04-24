@@ -35,7 +35,7 @@
     margin-right: 25px;
     cursor: pointer;
     text-decoration: none;
-    transition: background none ease-in-out; 
+    transition: background none ease-in-out !important; 
   }
 
   .boton-registrarse button{
@@ -45,7 +45,7 @@
   .boton-registrarse:hover {
     /* Estilo al pasar el mouse */
 
-    transition: background 0.3s ease-in-out; 
+    transition: background 12s !important; 
     background: linear-gradient(to left, #52A13B, #123D05); /* Cambia los valores de color según sea necesario */
 }
 
