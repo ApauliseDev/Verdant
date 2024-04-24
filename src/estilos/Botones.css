@@ -37,6 +37,10 @@
     text-decoration: none;
     transition: background none ease-in-out; 
   }
+
+  .boton-registrarse button{
+    align-self: flex-end !important;
+  }
   
   .boton-registrarse:hover {
     /* Estilo al pasar el mouse */
