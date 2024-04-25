@@ -1,3 +1,14 @@
+.contenedor-titulo-peliculas{
+    font-family: "Cinzel bold";
+    margin-left: 60px;
+    color: antiquewhite;
+    font-size: 10px;
+    margin-top: 110px; 
+    position:absolute;
+
+}
+
+
 .img-grid img{
     transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Transición suave para transformaciones y sombra */
 
@@ -6,11 +17,11 @@
 }
 
 .img-grid img:hover{
-    transform: scale(
-        1
-      ); 
-      transition: 0.1s !important;
+      transition: 0.2s !important;
       box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Añade una sombra brillante alrededor de la imagen */
       outline: 3px solid white;
-      outline-offset: 4px ;
+      outline-offset: 3px ;
+      transform: scale(
+        1.03
+      ); 
 }

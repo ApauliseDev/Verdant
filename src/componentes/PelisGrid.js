@@ -26,27 +26,22 @@ const elementosMenu2 = [
 
 function PelisGrid() {
   return (
-<<<<<<< HEAD
-    <div>
-    <button> </button>
-      
-=======
     <> 
     <Navegador items= {elementosMenu2} />
 
-    <div style={{ fontFamily: "Cinzel bold",marginLeft: "8px",color: "antiquewhite",fontSize: "10px" ,marginTop: "110px", position:"absolute"}}>
+    <div className='contenedor-titulo-peliculas'>
       <h2>Peliculas</h2>
->>>>>>> cfe60ba6ab2b32be7a0e3fc65224372bb9f4a5be
     </div>
     <Box sx=
     {{ flexGrow: 1,
       marginTop:20,
-
+      paddingLeft: 6,
+      paddingRight:6
       
 
     }}>
       <Grid container spacing={0.1}>
-        <Grid  height= "184px" xs={6} md= {4} lg= {3} xl={2.4} >
+        <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
           <Item className='img-grid'>
           <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{  borderRadius: "16px",width: '100%', height: '100%' }}/>
           </Item>
