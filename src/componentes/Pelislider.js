@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../estilos/Pelislider.css'
-import { FaHome } from "react-icons/fa";
+import {Link} from 'react-router-dom'
 
 
 
@@ -63,7 +63,7 @@ function Pelislider(props) {
       <Slider {...settings}> 
 
         <div>
-          <img src="/Imagenes/planetaSimios.png"  alt='guerra'/>
+          <Link to ="/LayoutPeliculas"  >  <img src="/Imagenes/planetaSimios.png"  alt='guerra'/> </Link>
         </div>
         <div>
         <img src="/Imagenes/Uncharted.jpg"  alt='guerra'/>

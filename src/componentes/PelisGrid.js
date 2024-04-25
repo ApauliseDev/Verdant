@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 function PelisGrid() {
   return (
     <div>
-    <button> <homeIcon/> </button>
+    <button> </button>
       
     </div>
   )

@@ -27,6 +27,7 @@ function App() {
           <Route path="/LayoutPeliculas" element={<LayoutPeliculas/>}/> 
           <Route path="/PelisGrid" element= {<PelisGrid/>}/>
           <Route path="/SeriesGrid" element= {<SeriesGrid/>}/>
+          <Route path="/LayoutPeliculas" element = {<LayoutPeliculas/>}> </Route>
         </Routes>
       </div>
       <Footer />
