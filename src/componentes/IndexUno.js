@@ -7,12 +7,20 @@ import {NavBar}  from  './Nav'
 import Navegador from './NavBTSP'
 import Acordion from './Acordion'
 import {Link} from 'react-router-dom'
+
+
+
 function IndexUno() {
+  const elementosMenu = [
+    {url:'/',texto: 'Inicio' },
+    {url:'/LayoutCatalogo',texto: 'Catalogo' },
+
+  ]
   return (
     <>
     <div className="imagen-fondo">
     {/* <NavBar/> */}
-    <Navegador/>
+    <Navegador items= {elementosMenu} />
       <div className="encabezado">
         <h1 className="title" >
           EXPLORA UN MUNDO DE ENTRETENIMIENTO

@@ -36,6 +36,7 @@
     cursor: pointer;
     text-decoration: none;
     transition: background none ease-in-out !important; 
+    
   }
 
   .boton-registrarse button{

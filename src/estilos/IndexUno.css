@@ -49,6 +49,7 @@
   font-size: 20px;
   font-family: 'Cinzel regular';
 
+
 }
 .title {
   font-family:'Cinzel bold' ;
@@ -60,7 +61,12 @@
   display: flex;
 }
 
+
+
 @media screen and (max-width: 1400px) {
+  .imagen-fondo{
+    height: 80vh;
+  }
   .title {
     font-size: 40px;
   }
@@ -72,11 +78,14 @@
   .texto{
     padding-top: 5px;
     font-size: 20px;
-  
+
   }
 }
 
 @media screen and (max-width: 992px) {
+  .imagen-fondo{
+    height: 60vh;
+  }
   .title {
     font-size: 30px;
   }
@@ -95,6 +104,8 @@
     margin: auto;
     font-size: 15px;
     font-family:'Cinzel bold' ;
+    text-align: center;
+  
   }
 
   .Botones-index{
@@ -109,6 +120,9 @@
 }
 
 @media screen and (max-width: 814px) {
+  .imagen-fondo{
+    height: 60vh;
+  }
   .title {
     font-size: 18px;
   }

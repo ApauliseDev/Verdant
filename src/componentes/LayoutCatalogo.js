@@ -7,6 +7,7 @@ import {SliderCatalogo} from './SliderCatalogo'
 import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
 import Navegador from './NavBTSP'
+import { FaHome } from "react-icons/fa";
 
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
@@ -76,9 +77,19 @@ const infoImg = {
   tituloSlider: "Aventura"
 }
 
+const elementosMenu2 = [
+  {url:'/',texto:'Inicio' },
+  {url:'/PelisGrid',texto: 'Peliculas' },
+  {url:'/SeriesGrid',texto: 'Series' },
+
+  
+ 
+
+]
+
   return (
-    <div className=''>
-    <Navegador/>
+    <div >
+    <Navegador items= {elementosMenu2} />
     <SliderCatalogo/>
         <SImplePaper/>
         <Pelislider  tituloSlider = "Aventura" />

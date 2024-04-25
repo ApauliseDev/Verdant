@@ -78,7 +78,7 @@
   margin: 10px;
   width: 336px;
   height: 102px;
-  color: #5ad635 !important;
+  color: #3D9133 !important;
   font-family: "Cinzel bold";
 }
 
@@ -109,6 +109,9 @@
   .card {
     width: 250px;
     font-size: 15px;
+  }
+  .navbar-collapse button{
+    display: none !important;
   }
 }
 

@@ -9,8 +9,9 @@ import LayoutCatalogo from './componentes/LayoutCatalogo'
 import LogIn from "./componentes/LogIn";
 import LayoutPeliculas from "./componentes/LayoutPeliculas"
 import "bootstrap/dist/css/bootstrap.min.css";
-// import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import PelisGrid from './componentes/PelisGrid';
+import SeriesGrid from './componentes/SeriesGrid';
 // register Swiper custom elements
 register();
 
@@ -20,10 +21,12 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Routes>
-          <Route path="/" element={<IndexUno />}></Route>
-          <Route path="/LogIn" element={<LogIn />}></Route>
-          <Route path="/LayoutCatalogo" element= {<LayoutCatalogo/>}> </Route>
-          <Route path="/LayoutPeliculas" element={<LayoutPeliculas/>}> </Route>
+          <Route path="/" element={<IndexUno />}/>
+          <Route path="/LogIn" element={<LogIn />}/>
+          <Route path="/LayoutCatalogo" element= {<LayoutCatalogo/>}/>
+          <Route path="/LayoutPeliculas" element={<LayoutPeliculas/>}/> 
+          <Route path="/PelisGrid" element= {<PelisGrid/>}/>
+          <Route path="/SeriesGrid" element= {<SeriesGrid/>}/>
         </Routes>
       </div>
       <Footer />
