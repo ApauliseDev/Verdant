@@ -81,10 +81,6 @@ const elementosMenu2 = [
   {url:'/',texto:'Inicio' },
   {url:'/PelisGrid',texto: 'Peliculas' },
   {url:'/SeriesGrid',texto: 'Series' },
-
-  
- 
-
 ]
 
   return (
