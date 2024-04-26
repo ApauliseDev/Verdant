@@ -8,8 +8,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-
-
 }
 .contenedorLogin{
     display: flex;
@@ -18,10 +16,10 @@
     margin-top: 25px;
     padding-bottom: 30px;
     background: #fff;
-    width: 600px;
+    max-width: 600px; /* Cambiado a max-width */
+    width: 90%; /* Cambiado a porcentaje */
     border-radius: 24px;
-
-
+}
 
 .header {
     display: flex;
@@ -30,8 +28,9 @@
     gap: 9px;
     width: 100%;
     margin-top: 30px;
-
 }
+
+
 .text {
     color: #5AD635;
     font-size: 48px;
@@ -46,30 +45,32 @@
 }
 
 .inputs{
-    margin-top: 55px;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     gap: 25px;
-
+    align-items: center; /* Añadido */
 }
 
 .input{
     display: flex;
     align-items: center;
     margin: auto ;
-    width: 480px;
-    height: 80px;
+    max-width: 480px; /* Cambiado a max-width */
+    width: 90%; /* Cambiado a porcentaje */
+    height: auto; /* Añadido */
     background:#eaeaea ;
     border-radius: 6px;
 }
 
 
 .iconos{
-    margin: 0px 30px;
+    margin: 0px 10px; /* Reducido el espacio */
 }
+
 .input input{
     height: 50px;
-    width: 400px;
+    max-width: 90%; /* Cambiado a porcentaje */
     background: transparent;
     border: none;
     outline: none;
@@ -78,37 +79,36 @@
 }
 
 .forgot-password{
-    padding-left: 62px;
-    margin-top: 27px;
-    color: #797979 ;
-    font-size: 18px;
-
-
+    padding-left: 10%; /* Reducido el padding */
+    margin-top: 20px; /* Reducido el margin-top */
+    font-size: 16px; /* Reducido el tamaño de fuente */
 }
 
 .forgot-password span {
 color:#5AD635 ;
 cursor: pointer;
 font-weight: 650;
+
 }
 
 .submit-container {
     display: flex;
-    gap: 30px;
-    margin: 20px auto;
-
+    gap: 15px; /* Reducido el espacio */
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
+
 .submit{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220px;
-    height: 59px;
+    width: 90%; /* Cambiado a porcentaje */
+    height: 50px; /* Reducido la altura */
     color: #fff;
     background:#5AD635;
-    font-size: 19px;
+    font-size: 18px; /* Reducido el tamaño de fuente */
     font-weight: 700;
     cursor: pointer;
 }
 
-}

@@ -91,6 +91,10 @@ font-family: 'Cinzel bold';
     text-align: center;
   }
 
+  .titulo{
+    font-size: 40px ;
+    }
+
 }
 
 
@@ -98,7 +102,5 @@ font-family: 'Cinzel bold';
   .copyright {
     font-size: 13px;
   }
-
-
 
 }
