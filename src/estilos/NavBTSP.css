@@ -63,8 +63,4 @@
     width: 100%; /* Ancho del subrayado al hacer hover */
 }
 
-@media screen and (max-width: 992px) {
-  .boton-regist{
-    display: none !important;
-  }
-}
+

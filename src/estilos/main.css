@@ -113,9 +113,15 @@
     width: 250px;
     font-size: 15px;
   }
+}
+
+@media screen and (max-width: 992px){
   .navbar-collapse button{
     display: none !important;
   }
+
+
+
 }
 
 @media screen and (max-width: 830px){

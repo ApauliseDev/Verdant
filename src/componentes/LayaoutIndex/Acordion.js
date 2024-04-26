@@ -2,7 +2,7 @@ import Accordion from "react-bootstrap/Accordion";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
 
-import "../estilos/Acordion.css";
+import "../../estilos/Acordion.css";
 
 export function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>

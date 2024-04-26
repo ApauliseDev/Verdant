@@ -67,7 +67,7 @@ function PelisGrid() {
           </Item>
         </Grid>
         {/* ------------------------------ Fila2 -----------------------------------------   */}
-        <Grid  height= "184px" xs={6} md= {4} lg= {3} xl={2.4} >
+        <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
           <Item className='img-grid'>
           <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
           </Item>
@@ -80,7 +80,7 @@ function PelisGrid() {
         <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
           <Item className='img-grid'>
           <img src="/Imagenes/Godzilla.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item >
+          </Item>
         </Grid>
         <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
           <Item className='img-grid'>
@@ -93,7 +93,7 @@ function PelisGrid() {
           </Item>
         </Grid>
           {/* ------------------------------ Fila3 -----------------------------------------   */}
-          <Grid  height= "184px" xs={6} md= {4} lg= {3} xl={2.4} >
+          <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
           <Item className='img-grid'>
           <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
           </Item>
@@ -119,7 +119,7 @@ function PelisGrid() {
           </Item>
         </Grid>
           {/* ------------------------------ Fila4 -----------------------------------------   */}
-          <Grid  height= "184px" xs={6} md= {4} lg= {3} xl={2.4} >
+          <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
           <Item className='img-grid'>
           <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
           </Item>

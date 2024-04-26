@@ -5,7 +5,7 @@ import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes';
 import StarIcon from '@mui/icons-material/Star';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import "../estilos/main.css";
+import "../../estilos/main.css";
 
 import { ImAirplane } from "react-icons/im";
 

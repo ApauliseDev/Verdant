@@ -1,6 +1,6 @@
 
 import '../estilos/Nav.css'
-import {Boton} from './Botones'
+import {Boton} from './LayaoutIndex/Botones'
 import {Link} from 'react-router-dom'
 
 function Nav() {

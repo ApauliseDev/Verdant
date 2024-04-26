@@ -1,10 +1,8 @@
 import React from "react";
-import "../estilos/IndexUno.css"; // Importa el archivo CSS para estilos
+import "../../estilos/IndexUno.css"; // Importa el archivo CSS para estilos
 import {Boton} from './Botones'
-import Main from '../componentes/Main'
-import LogIn from './LogIn'
-import {NavBar}  from  './Nav' 
-import Navegador from './NavBTSP'
+import Main from './Main'
+import Navegador from '../NavBTSP'
 import Acordion from './Acordion'
 import {Link} from 'react-router-dom'
 
@@ -14,6 +12,7 @@ function IndexUno() {
   const elementosMenu = [
     {url:'/',texto: 'Inicio' },
     {url:'/LayoutCatalogo',texto: 'Catalogo' },
+    
 
   ]
   return (

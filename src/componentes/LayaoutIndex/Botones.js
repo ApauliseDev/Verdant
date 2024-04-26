@@ -1,4 +1,4 @@
-import '../estilos/Botones.css'
+import '../../estilos/Botones.css'
 
 export function Boton({title}){
     return (

@@ -3,7 +3,7 @@ import * as React from "react";
 import Footer from "./componentes/Footer";
 import "./estilos/App.css";
 
-import IndexUno from "./componentes/IndexUno";
+import IndexUno from "./componentes/LayaoutIndex/IndexUno";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutCatalogo from './componentes/LayoutCatalogo'
 import LogIn from "./componentes/LogIn";

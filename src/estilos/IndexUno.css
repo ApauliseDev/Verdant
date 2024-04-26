@@ -121,7 +121,7 @@
 
 @media screen and (max-width: 814px) {
   .imagen-fondo{
-    height: 60vh;
+    height: 70vh;
   }
   .title {
     font-size: 18px;
@@ -155,5 +155,15 @@
   #boton-link{
     margin: 5px;
   }
+
+}
+
+
+@media screen and (max-width: 410px) { 
+  .title {
+    font-size: 15px;
+  }
+
+
 
 }

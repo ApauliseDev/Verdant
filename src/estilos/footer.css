@@ -92,3 +92,13 @@ font-family: 'Cinzel bold';
   }
 
 }
+
+
+@media screen and (max-width: 410) { 
+  .copyright {
+    font-size: 13px;
+  }
+
+
+
+}
