@@ -9,6 +9,48 @@ function TabsMui() {
     setValue(newValue);
   };
 
+  const contenidoPlantaSimios = {
+    Elenco: [
+      "Andy Serkis(César)",
+      "James Franco (Will Rodman)",
+      "Freida Pinto (Caroline)",
+      "Terry Notary (Bright Eyes)",
+      "Tom Felton (Dodge Landon)"
+    ],
+    Producción: [
+      "Dirigida por Rupert Wyatt",
+      "Guion Rick Jaffa, Amanda Silver"
+    ],
+    Detalles: [
+      "Will Rodman, un científico de San Francisco, está experimentando con una droga con la que espera curar la enfermedad de Alzheimer que sufre su padre. Después de que su trabajo presenta una falla, Will se convierte en el protector de un chimpancé que estuvo expuesto a la droga. Caesar desarrolla una inteligencia inusual, y Will decide continuar con sus experimentos. Pero al crecer la inteligencia y habilidades de Caesar, él se convierte en una amenaza para los humanos en la Tierra."
+    ],
+    Genero:[
+      "Accion",
+      "Drama",
+      "Guerra"
+    ]
+  };
+
+  function TabPanelContent({ tabName }) {
+    // Verifica si el nombre de la pestaña existe en el objeto contenidoPlantaSimios
+    if (!(tabName in contenidoPlantaSimios)) {
+      return <p>No hay contenido para esta pestaña.</p>;
+    }
+  
+    // Obtiene todos los valores correspondientes a la pestaña 'tabName'
+    const contenido = contenidoPlantaSimios[tabName];
+  
+    return (
+      <ul>
+        {/* Mapea cada elemento del array contenido y crea un elemento li para cada uno */}
+        {contenido.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+  
+
   return (
     <Box sx={{ width: "100%", color: "#5bd635" }}>
       <TabContext value={value}>
@@ -34,30 +76,16 @@ function TabsMui() {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <ul>
-            <li>Andy Serkis(César) <br /></li>
-            <li>James Franco (Will Rodman) <br /> </li>
-            <li>Freida Pinto (Caroline) <br /> </li>
-            <li>Terry Notary (Bright Eyes) <br /> </li>
-            <li>Tom Felton (Dodge Landon) <br /></li>
-            <li>John Lithgow (Charles Rodman) <br /> </li>
-            <li>Brian Cox(John Landon) <br /></li>
-            <li>David Hewlett(Hunsiker)</li>
-          </ul>
+          <TabPanelContent tabName="Elenco" />
         </TabPanel>
-        <TabPanel value="2"> 
-        <ul>
-        <li> Dirigida por Rupert Wyatt <br/> </li>
-        <li> Guion Rick Jaffa, Amanda Silver</li>
-        </ul>
+        <TabPanel value="2">
+          <TabPanelContent tabName="Producción" /> 
         </TabPanel>
-        <TabPanel value="3">Will Rodman, un científico de San Francisco, está experimentando con una droga con la que espera curar la enfermedad de Alzheimer que sufre su padre. Después de que su trabajo presenta una falla, Will se convierte en el protector de un chimpancé que estuvo expuesto a la droga. Caesar desarrolla una inteligencia inusual, y Will decide continuar con sus experimentos. Pero al crecer la inteligencia y habilidades de Caesar, él se convierte en una amenaza para los humanos en la Tierra.</TabPanel>
+        <TabPanel value="3">
+          <TabPanelContent tabName="Detalles" />
+        </TabPanel>
         <TabPanel value="4"> 
-        <ul>
-            <li>Accion</li>  
-            <li>Drama</li>
-            <li>Guerra</li>
-        </ul>
+          <TabPanelContent tabName="Genero" />
         </TabPanel>
       </TabContext>
     </Box>

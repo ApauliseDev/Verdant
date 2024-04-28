@@ -1,6 +1,7 @@
 
 import TabsMui from  './Tabs'
 import Navegador from './NavBTSP'
+import RatingStars from "./RatingStars"
 
 
 function LayoutPeliculas() {
@@ -8,7 +9,7 @@ function LayoutPeliculas() {
   return (
     <> 
     
-
+    <RatingStars/>
     
     <TabsMui/>
 
