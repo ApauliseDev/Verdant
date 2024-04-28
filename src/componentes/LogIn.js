@@ -12,8 +12,6 @@ const usuarios = [
   {usuario: "julian@gmail.com",contraseña: "123"},
   {usuario: "pepe@gmail.com",contraseña: "234"},
   {usuario: "tuti@gmail.com",contraseña: "juan"},
-
-
 ]
 
 
