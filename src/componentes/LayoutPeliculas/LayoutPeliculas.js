@@ -1,8 +1,7 @@
 
 import TabsMui from  './Tabs'
 import Navegador from '../NavBTSP'
-import RatingStars from "./RatingStars"
-
+import HeaderPeliculas from "./HeaderPeliculas"
 
 function LayoutPeliculas() {
   const elementosMenu = [
@@ -15,10 +14,9 @@ function LayoutPeliculas() {
 
   return (
     <> 
-    <Navegador items={elementosMenu} />
+    <Navegador items={elementosMenu}/>
+    <HeaderPeliculas/>
     
-    
-    <RatingStars/>
     
     <TabsMui/>
 
