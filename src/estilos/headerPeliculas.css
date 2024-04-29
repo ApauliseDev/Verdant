@@ -65,3 +65,13 @@
     text-align: start;
     max-width: 900px;
   }
+
+.reparto{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.reparto h5{
+  text-decoration: #5bd635 underline 3px;
+}
