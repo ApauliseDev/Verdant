@@ -52,7 +52,7 @@ function TabsMui() {
   
 
   return (
-    <Box sx={{ width: "100%", color: "#5bd635" }}>
+    <Box sx={{ width: "100%", color: "#5bd635"}}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList

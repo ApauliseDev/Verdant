@@ -29,11 +29,12 @@ export default function RatingStars() {
       sx={{
         width: 200,
         display: 'flex',
-        alignItems: 'center',
-      }}
+        alignItems: 'center',   }}
     >
       <Rating
-        sx={{color: "#5bd635"}}
+        sx={{color: "#5bd635",
+          fontSize: 30
+        }}
         name="hover-feedback"
         value={value}
         precision={0.5}

@@ -1,6 +1,6 @@
 .header {
     position: relative;
-    height: 600px; /* Ajustar la altura según tu diseño */
+    height: 620px; /* Ajustar la altura según tu diseño */
     overflow: hidden;
     margin: 0;
     display: flex;
@@ -41,6 +41,7 @@
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    
 
 
   }
