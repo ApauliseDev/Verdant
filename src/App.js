@@ -7,7 +7,7 @@ import IndexUno from "./componentes/LayaoutIndex/IndexUno";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutCatalogo from './componentes/LayoutCatalogo'
 import LogIn from "./componentes/LogIn";
-import LayoutPeliculas from "./componentes/LayoutPeliculas"
+import LayoutPeliculas from "./componentes/LayoutPeliculas/LayoutPeliculas"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { register } from 'swiper/element/bundle';
 import PelisGrid from './componentes/PelisGrid';

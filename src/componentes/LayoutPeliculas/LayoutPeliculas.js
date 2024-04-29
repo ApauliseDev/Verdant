@@ -1,6 +1,6 @@
 
 import TabsMui from  './Tabs'
-import Navegador from './NavBTSP'
+import Navegador from '../NavBTSP'
 import RatingStars from "./RatingStars"
 
 
@@ -16,6 +16,7 @@ function LayoutPeliculas() {
   return (
     <> 
     <Navegador items={elementosMenu} />
+    
     
     <RatingStars/>
     
