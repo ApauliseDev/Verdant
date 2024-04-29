@@ -17,42 +17,6 @@ const MovieSlide = ({ imageUrl, title }) => (
 );
 
 // Componente del carrusel
-const MovieCarousel = ({ movies }) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerMode: true, // Habilitar el modo centrado
-    centerPadding: '60px', // Espacio entre las imágenes
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 1
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
-
-  return (
-    <Slider {...settings}>
-      {movies.map((movie, index) => (
-        <MovieSlide key={index} imageUrl={movie.imageUrl} title={movie.title} />
-      ))}
-    </Slider>
-  );
-};
 
 
 
@@ -60,36 +24,34 @@ const MovieCarousel = ({ movies }) => {
 
 function LayoutCatalogo() {
 
-const slider1Img = [
-  "/Imagenes/planetaSimios.png",
+const sliderAventura = {
+  imagenes: [  "/Imagenes/planetaSimios.png",
   "/Imagenes/Uncharted.jpg",
   "/Imagenes/guerra4.jpg",
+  "/Imagenes/.jpg" ,
   "/Imagenes/guerra4.jpg" ,
   "/Imagenes/guerra4.jpg" ,
   "/Imagenes/guerra4.jpg" ,
   "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" 
-]
-
-const infoImg = {
-  imgArray: slider1Img,
-  tituloSlider: "Aventura"
+  "/Imagenes/guerra4.jpg" ],
+  a: 'Aventura'
 }
 
+
+
 const elementosMenu2 = [
-  {url:'/',texto:'Inicio' },
+  {url:'/LayoutCatalogo',texto:'Inicio' },
   {url:'/PelisGrid',texto: 'Peliculas' },
   {url:'/SeriesGrid',texto: 'Series' },
   {url:'/Favoritos', texto: 'Mis favoritos' }
 ]
 
   return (
-    <div >
+    < >
     <Navegador items= {elementosMenu2} />
     <SliderCatalogo/>
         <SImplePaper/>
-        <Pelislider  tituloSlider = "Aventura" />
+        <Pelislider  tituloSlider= "Aventura" />
         <Pelislider tituloSlider = "Terror"/>
         <Pelislider tituloSlider = "Romance"/>
         <Pelislider tituloSlider = "Comedia"/>
@@ -97,7 +59,7 @@ const elementosMenu2 = [
 
 
 
-    </div>
+    </>
   )
 }
 

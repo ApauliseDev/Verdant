@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 
 
-function Pelislider(props) {
+function Pelislider(props)    {
 
 
 

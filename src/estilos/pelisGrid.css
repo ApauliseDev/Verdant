@@ -9,6 +9,10 @@
 }
 
 
+.img-grid{
+  box-shadow: none !important;
+}
+
 .img-grid img{
     transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Transición suave para transformaciones y sombra */
 

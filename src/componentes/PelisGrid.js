@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const elementosMenu2 = [
-  {url:'/',texto:'Inicio' },
+  {url:"/LayoutCatalogo",texto:'Inicio' },
   {url:'/PelisGrid',texto: 'Peliculas' },
   {url:'/SeriesGrid',texto: 'Series' },
 ]
@@ -36,7 +36,8 @@ function PelisGrid() {
     {{ flexGrow: 1,
       marginTop:20,
       paddingLeft: 6,
-      paddingRight:6
+      paddingRight:6,
+  
       
 
     }}>
