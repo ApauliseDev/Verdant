@@ -22,8 +22,11 @@ function TabsMui() {
       "Guion Rick Jaffa, Amanda Silver"
     ],
     Detalles: [
-      "Will Rodman, un científico de San Francisco, está experimentando con una droga con la que espera curar la enfermedad de Alzheimer que sufre su padre. Después de que su trabajo presenta una falla, Will se convierte en el protector de un chimpancé que estuvo expuesto a la droga. Caesar desarrolla una inteligencia inusual, y Will decide continuar con sus experimentos. Pero al crecer la inteligencia y habilidades de Caesar, él se convierte en una amenaza para los humanos en la Tierra."
-    ],
+      "Fecha de estreno: 28 de marzo de 2024 ",
+      "Director: Adam Wingard",
+      "Recaudación: $522 503 756",
+      "Presupuesto: $135 000 000"
+        ],
     Genero:[
       "Accion",
       "Drama",
@@ -52,6 +55,7 @@ function TabsMui() {
   
 
   return (
+    <div style={{display: "flex", width: "100%",justifyContent: "center"}}> 
     <Box sx={{ width: "100%", color: "#5bd635"}}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -89,6 +93,7 @@ function TabsMui() {
         </TabPanel>
       </TabContext>
     </Box>
+    </div>
   );
 }
 

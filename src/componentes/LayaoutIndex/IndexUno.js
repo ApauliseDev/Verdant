@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom'
 
 function IndexUno() {
   const elementosMenu = [
-    {url:'/',texto: 'Inicio' },
     {url:'/LayoutCatalogo',texto: 'Catalogo' },
     
 
