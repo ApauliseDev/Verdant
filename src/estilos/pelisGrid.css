@@ -1,3 +1,23 @@
+
+  @font-face {
+    font-family: 'Cinzel bold';
+    src: url('../fonts/Cinzel/Cinzel-Bold.ttf') format('truetype');
+    /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+  }
+    
+  @font-face {
+    font-family: 'Cinzel regular';
+    src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+    /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+  }
+
+  @font-face {
+    font-family: 'Cinzel semibold';
+    src: url('../fonts/Cinzel/Cinzel-SemiBold.ttf') format('truetype');
+    /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+  }
+
+
 .contenedor-titulo-peliculas{
     font-family: "Cinzel bold";
     margin-left: 60px;
@@ -5,6 +25,8 @@
     font-size: 10px;
     margin-top: 110px; 
     position:absolute;
+    display: flex;
+    gap: 20px;
 
 }
 
@@ -28,4 +50,11 @@
       transform: scale(
         1.03
       ); 
+}
+
+#demo-customized-button{
+  border-radius: 16px;
+  background: linear-gradient(to right, #52A13B, #123D05); ;
+  font-family: "Cinzel semibold";
+
 }

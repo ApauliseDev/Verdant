@@ -51,7 +51,7 @@ const elementosMenu2 = [
     <Navegador items= {elementosMenu2} />
     <SliderCatalogo/>
         <SImplePaper/>
-        <Pelislider  tituloSlider= "Aventura" />
+        <Pelislider id="slider1" tituloSlider= "Aventura" />
         <Pelislider tituloSlider = "Terror"/>
         <Pelislider tituloSlider = "Romance"/>
         <Pelislider tituloSlider = "Comedia"/>

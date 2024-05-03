@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import  Navegador from './NavBTSP'
 import '../estilos/pelisGrid.css'
+import CustomizedMenus from './CustomizedMenus'
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: 'transparent',
   ...theme.typography.body2,
@@ -31,6 +33,7 @@ function PelisGrid() {
 
     <div className='contenedor-titulo-peliculas'>
       <h2>Peliculas</h2>
+      <CustomizedMenus/>
     </div>
     <Box sx=
     {{ flexGrow: 1,

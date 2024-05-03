@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material";
+import '../estilos/simplePaper.css'
 
 const theme = createTheme({
   palette: {
@@ -22,6 +23,9 @@ const theme = createTheme({
 });
 
 function SImplePaper() {
+
+
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -51,6 +55,7 @@ function SImplePaper() {
           }}
         >
           <img
+            id="img-paper"
             src="/Imagenes/Uncharted.jpg"
             alt="Imagen 1"
             style={{
@@ -80,6 +85,7 @@ function SImplePaper() {
           }}
         >
           <img
+            id="img-paper"
             src="/Imagenes/Annabelle.jpg"
             alt="Imagen 1"
             style={{
@@ -109,6 +115,7 @@ function SImplePaper() {
           }}
         >
           <img
+            id="img-paper"
             src="/Imagenes/LaLaLand.jpg"
             alt="Imagen 1"
             style={{
@@ -138,6 +145,7 @@ function SImplePaper() {
           }}
         >
           <img
+            id="img-paper"
             src="/Imagenes/comediaa.jpg"
             alt="Imagen 1"
             style={{
@@ -167,6 +175,7 @@ function SImplePaper() {
           }}
         >
           <img
+            id="img-paper"
             src="/Imagenes/guerra4.jpg"
             alt="Imagen 1"
             style={{
