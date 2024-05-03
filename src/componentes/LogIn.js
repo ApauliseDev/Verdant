@@ -56,7 +56,7 @@ function LogIn(props) {
       </div>
 
       <div className="contenedorLogin">
-        <div className="header">
+        <div className="header-login">
           <div className="text">{action} </div>
           <div className="underline"> </div>
         </div>
