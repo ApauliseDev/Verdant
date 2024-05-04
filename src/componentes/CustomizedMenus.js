@@ -74,7 +74,7 @@ const StyledMenu = styled((props) => (
           onClick={handleClick}
           endIcon={<KeyboardArrowDownIcon />}
         >
-          Categorias  
+          Generos  
         </Button>
         <StyledMenu
           id="demo-customized-menu"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import "../../estilos/headerPeliculas.css";
 
 function TabsMui() {
   const [value, setValue] = useState("1");
@@ -11,11 +12,11 @@ function TabsMui() {
 
   const contenidoPlantaSimios = {
     Elenco: [
-      "Andy Serkis(César)",
-      "James Franco (Will Rodman)",
-      "Freida Pinto (Caroline)",
-      "Terry Notary (Bright Eyes)",
-      "Tom Felton (Dodge Landon)"
+      "Andy Serkis",
+      "James Franco ",
+      "Freida Pinto",
+      "Terry Notary ",
+      "Tom Felton "
     ],
     Producción: [
       "Dirigida por Rupert Wyatt",
@@ -44,7 +45,7 @@ function TabsMui() {
     const contenido = contenidoPlantaSimios[tabName];
   
     return (
-      <ul>
+      <ul id ="contenido-tab">
         {/* Mapea cada elemento del array contenido y crea un elemento li para cada uno */}
         {contenido.map((item, index) => (
           <li key={index}>{item}</li>
@@ -55,10 +56,10 @@ function TabsMui() {
   
 
   return (
-    <div style={{display: "flex", width: "100%",justifyContent: "center"}}> 
-    <Box sx={{ width: "100%", color: "#5bd635"}}>
+
+    <Box sx={{ width: "100%", color: "#fff"}}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: 3, borderColor: "divider" }}>
           <TabList
             centered
             onChange={handleChange}
@@ -67,7 +68,7 @@ function TabsMui() {
             sx={{
               "& button": {
                 borderRadius: 2,
-                color: "#5bd635",
+                color: "#fff",
                 underline: "#5bd635",
               },
               "& button:hover": { backgroundColor: "#5bd63565", color: "#fff" },
@@ -93,7 +94,7 @@ function TabsMui() {
         </TabPanel>
       </TabContext>
     </Box>
-    </div>
+
   );
 }
 

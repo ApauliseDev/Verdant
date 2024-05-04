@@ -43,7 +43,7 @@ const elementosMenu2 = [
   {url:'/LayoutCatalogo',texto:'Inicio' },
   {url:'/PelisGrid',texto: 'Peliculas' },
   {url:'/SeriesGrid',texto: 'Series' },
-  {url:'/Favoritos', texto: 'Mis favoritos' }
+  {url:'/Favoritos', texto: 'Mis favoritos' },
 ]
 
   return (

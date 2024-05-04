@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import {useNavigate ,Link} from 'react-router-dom'
 import "../estilos/logIn.css";
 import { BiSolidUser } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import "../estilos/footer.css";
 import { ImOpt } from "react-icons/im";
+import LayoutCatalogo from './LayoutCatalogo'
 
 
 
@@ -20,11 +22,17 @@ function LogIn(props) {
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState("");
   const [action, setAction] = useState("Login");
+  const [denegade,setDenegade] = useState(true);
+
+  const navigate = useNavigate();
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (action === "Sign Up" ){
+      setUser("")
+      setContraseña("")
+      setDenegade(false)
       setAction("Login");
       return;
     }
@@ -34,15 +42,19 @@ function LogIn(props) {
   
     if (!cuenta) {
       setError('cuenta no encontrada');
+      setDenegade(true)
       return;
     }
 
     if (cuenta.contraseña !== contraseña) {
       setError("Contraseña incorrecta");
+      setDenegade(true)
       return;
     }
     setError("")
+    setDenegade(false)
     console.log("¡LogIn exitoso");
+    navigate('/LayoutCatalogo')
 
     
   };
@@ -88,7 +100,8 @@ function LogIn(props) {
              onChange={(e2) => setContraseña(e2.target.value) }
              />
           </div>
-          {error && <p style={{color:"red"}}> {error}</p>}
+      
+          {action=== "Login"?denegade && <p style={{color:"red"}}> {error}</p>: <></> }
         </div>
         {action === "Sign Up" ? (
           <div />
@@ -114,6 +127,10 @@ function LogIn(props) {
             {" "}
             Log in{" "}
           </div>
+               
+
+            
+    
         </div>
       </div>
     </div>

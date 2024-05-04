@@ -18,7 +18,7 @@ function LayoutPeliculas() {
     <HeaderPeliculas/>
     
     
-    <TabsMui/>
+    {/* <TabsMui  /> */}
 
     </>    
   )

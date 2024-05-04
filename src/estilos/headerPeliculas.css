@@ -1,10 +1,11 @@
-.header {
+#layout-header {
     position: relative;
-    height: 620px; /* Ajustar la altura según tu diseño */
+    height: auto; /* Ajustar la altura según tu diseño */
     overflow: hidden;
     margin: 0;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
 .header-banner {
@@ -41,7 +42,6 @@
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
-    
 
 
   }
@@ -67,12 +67,25 @@
     max-width: 900px;
   }
 
-.reparto{
-  display: flex;
-  justify-content: space-between;
+  .reparto{
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  .reparto h5{
+    text-decoration: #5bd635 underline 3px;
+  }
 
-}
+  #contenido-tab{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: hidden;
+    list-style: none;
 
-.reparto h5{
-  text-decoration: #5bd635 underline 3px;
-}
+  }
+  #contenido-tab li{
+    margin:5px ;
+
+   }
