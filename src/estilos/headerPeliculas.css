@@ -89,3 +89,22 @@
     margin:5px ;
 
    }
+
+   .generos-pelicula{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+   }
+
+   .genero{
+    margin-right: 3%;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+   }
+
+ #id{
+  padding: 5px;
+ }
