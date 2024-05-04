@@ -11,7 +11,6 @@ import LayoutPeliculas from "./componentes/LayoutPeliculas/LayoutPeliculas"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { register } from 'swiper/element/bundle';
 import PelisGrid from './componentes/PelisGrid';
-import SeriesGrid from './componentes/SeriesGrid';
 import Favoritos from './componentes/Favoritos'
 // register Swiper custom elements
 register();
@@ -27,7 +26,6 @@ function App() {
           <Route path="/LayoutCatalogo" element= {<LayoutCatalogo/>}/>
           <Route path="/LayoutPeliculas" element={<LayoutPeliculas/>}/> 
           <Route path="/PelisGrid" element= {<PelisGrid/>}/>
-          <Route path="/SeriesGrid" element= {<SeriesGrid/>}/>
           <Route path="/LayoutPeliculas" element = {<LayoutPeliculas/>}> </Route>
           <Route path="/Favoritos" element = <Favoritos/> > </Route>
         </Routes>                                                                     

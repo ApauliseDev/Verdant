@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -55,6 +55,40 @@ function Pelislider(props)    {
           }
         ]
       };
+      const [movies, setMovies] = useState([]);
+      const [genres, setGenres] = useState([]);
+    
+      useEffect(() => {
+        const fetchMovies = async () => {
+          const response = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=0023db00b52250d5bed5debec71d21fb');
+          const data = await response.json();
+          setMovies(data);
+        };
+    
+        const fetchGenres = async () => {
+          const response = await fetch('https://api.themoviedb.org/3/genre/movie?api_key=0023db00b52250d5bed5debec71d21fb');
+          const data = await response.json();
+          setGenres(data);
+        };
+    
+        Promise.all([fetchMovies(), fetchGenres()])
+          .then(() => {
+            // Una vez que ambos fetches se completen, puedes acceder tanto a las películas como a los géneros
+            // Combina o procesa los datos de películas y géneros según sea necesario
+          })
+          .catch((error) => {
+            console.error('Error al obtener datos:', error);
+            // Maneja los errores de forma adecuada
+          });
+      }, []);
+
+      
+
+
+
+    
+
+
   return (
     <div className="container">
                      <div>

@@ -6,7 +6,6 @@ function Favoritos() {
     const elementosMenu = [
         {url:'/LayoutCatalogo',texto:'Inicio' },
         {url:'/PelisGrid',texto: 'Peliculas' },
-        {url:'/SeriesGrid',texto: 'Series' },
         {url:'/Favoritos', texto: 'Mis favoritos' }
       ]
   return (

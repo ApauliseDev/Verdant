@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -14,6 +14,26 @@ import '../estilos/sliderCatalogo.css'
 import { EffectFade, Navigation, Pagination } from 'swiper/modules';
 
 export  function SliderCatalogo() {
+  const[movielist,setMovielist] = useState([])
+
+  const getMovie = () => {
+    fetch(
+      "https://api.themoviedb.org/3/discover/movie?api_key=0023db00b52250d5bed5debec71d21fb"
+    )
+      .then((res) => res.json())
+      .then((json) => setMovielist(json.results));
+  };
+
+  useEffect(() => {
+    getMovie();
+  }, []);
+
+  console.log(movielist)
+
+const movielist2 = movielist.slice(0,6)
+const random = Math.random().toString(36).substring(2, 7);
+
+
   return (
     <>
       <Swiper
@@ -32,18 +52,15 @@ export  function SliderCatalogo() {
          }}
         className="mySwiper"
       >
-        <SwiperSlide id="slideSwip">
-          <img id="slideimg" src="/Imagenes/ToyStory.jpg" />
+
+      {
+        movielist2.map((movie) => (
+
+          <SwiperSlide id="slideSwip">
+          <img id="slideimg" src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}?v=${random}`} alt= {movie.original_title}/>
         </SwiperSlide>
-        <SwiperSlide id="slideSwip">
-          <img id="slideimg" src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide id="slideSwip">
-          <img id="slideimg" src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide id="slideSwip">
-          <img  id="slideimg" src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
+        ))
+      }
       </Swiper>
     </>
   );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -6,6 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import  Navegador from './NavBTSP'
 import '../estilos/pelisGrid.css'
 import CustomizedMenus from './CustomizedMenus'
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: 'transparent',
@@ -22,11 +23,30 @@ const Item = styled(Paper)(({ theme }) => ({
 const elementosMenu2 = [
   {url:"/LayoutCatalogo",texto:'Inicio' },
   {url:'/PelisGrid',texto: 'Peliculas' },
-  {url:'/SeriesGrid',texto: 'Series' },
+  {url:'/Favoritos', texto: 'Mis favoritos' },
+
 ]
 
 
 function PelisGrid() {
+  const[movielist,setMovielist] = useState([])
+
+  const getMovie = () => {
+    fetch(
+      "https://api.themoviedb.org/3/discover/movie?api_key=0023db00b52250d5bed5debec71d21fb"
+    )
+      .then((res) => res.json())
+      .then((json) => setMovielist(json.results));
+  };
+
+  useEffect(() => {
+    getMovie();
+  }, []);
+
+  console.log(movielist)
+
+
+
   return (
     <> 
     <Navegador items= {elementosMenu2} />
@@ -45,109 +65,19 @@ function PelisGrid() {
 
     }}>
       <Grid container spacing={0.1}>
+
+
+      {movielist.map((movie) => (
+
         <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
           <Item className='img-grid'>
-          <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{  borderRadius: "16px",width: '100%', height: '100%' }}/>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  alt='guerra' style={{  borderRadius: "16px",width: '100%', height: '100%' }}/>
           </Item>
         </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/ToyStory.jpg"  alt='guerra' style={{borderRadius: "16px", width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Godzilla.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Uncharted.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Annabelle.jpg"  alt='guerra' style={{borderRadius: "16px", width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        {/* ------------------------------ Fila2 -----------------------------------------   */}
-        <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
-          <Item className='img-grid'>
-          <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/ToyStory.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Godzilla.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Uncharted.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Annabelle.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-          {/* ------------------------------ Fila3 -----------------------------------------   */}
-          <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
-          <Item className='img-grid'>
-          <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/ToyStory.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Godzilla.jpg"  alt='guerra' style={{borderRadius: "16px", width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Uncharted.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Annabelle.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-          {/* ------------------------------ Fila4 -----------------------------------------   */}
-          <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
-          <Item className='img-grid'>
-          <img src="/Imagenes/planetaSimios.png"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/ToyStory.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Godzilla.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4} lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Uncharted.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
-        <Grid xs={6} md= {4}  lg= {3}  xl={2.4}>
-          <Item className='img-grid'>
-          <img src="/Imagenes/Annabelle.jpg"  alt='guerra' style={{ borderRadius: "16px",width: '100%', height: '100%' }}/>
-          </Item>
-        </Grid>
+    
+
+    ))  }
+      
       </Grid>
     </Box>
     </>
