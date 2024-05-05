@@ -3,22 +3,22 @@ import "../../estilos/headerPeliculas.css";
 import RatingStars from "./RatingStars";
 import {ElencoImagenes} from "./ElencoImagenes"
 
-function HeaderPeliculas() {
+function HeaderPeliculas(props) {
   const genero = ["Romance", "Accion", "Guerra"];
 
   return (
     <header id="layout-header">
       <div className="header-banner">
-        <img src="Imagenes/Godzilla.jpg" alt="Gozilla Banner" />
+        <img src={`https://image.tmdb.org/t/p/original${props.wallpaper}`} alt="Gozilla Banner" />
         <div className="header-shadow"> </div>
       </div>
       <section className="header-content-box">
         <div className="cartelera-img">
-          <img src="Imagenes/GodxKong.jpg" alt="Gozilla imagen cartelera" />
+          <img src={`https://image.tmdb.org/t/p/w500${props.poster}`} alt="Gozilla imagen cartelera" />
           <RatingStars />
         </div>
         <article className="movie-info">
-          <h2>Godzilla x Kong </h2>
+          <h2> {props.title} </h2>
           <div className="generos-pelicula">
             {genero.map((genero, index) => (
               <p key={index} className="genero">
@@ -27,15 +27,7 @@ function HeaderPeliculas() {
             ))}
           </div>
           <h6> Descripción general</h6>
-          <p>
-            Una aventura cinematográfica completamente nueva, que enfrentará al
-            todopoderoso Kong y al temible Godzilla contra una colosal amenaza
-            desconocida escondida dentro de nuestro mundo. La nueva y épica
-            película profundizará en las historias de estos titanes, sus
-            orígenes y los misterios de Isla Calavera y más allá, mientras
-            descubre la batalla mítica que ayudó a forjar a estos seres
-            extraordinarios y los unió a la humanidad para siempre.
-          </p>
+          <p>{props.sinopsis} </p>
           <ElencoImagenes/>
         </article>
       </section>

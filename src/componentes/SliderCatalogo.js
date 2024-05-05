@@ -57,7 +57,7 @@ const random = Math.random().toString(36).substring(2, 7);
         movielist2.map((movie) => (
 
           <SwiperSlide id="slideSwip">
-          <img id="slideimg" src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}?v=${random}`} alt= {movie.original_title}/>
+          <img id="slideimg" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}?v=${random}`} alt= {movie.original_title}/>
         </SwiperSlide>
         ))
       }

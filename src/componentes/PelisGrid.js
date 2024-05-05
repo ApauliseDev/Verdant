@@ -6,6 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import  Navegador from './NavBTSP'
 import '../estilos/pelisGrid.css'
 import CustomizedMenus from './CustomizedMenus'
+import { Link } from 'react-router-dom';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,6 +48,8 @@ function PelisGrid() {
 
 
 
+
+
   return (
     <> 
     <Navegador items= {elementosMenu2} />
@@ -70,9 +73,15 @@ function PelisGrid() {
       {movielist.map((movie) => (
 
         <Grid   xs={6} md= {4} lg= {3} xl={2.4} >
-          <Item className='img-grid'>
+          <Link
+              key= {movie.id}
+              to={`/LayoutPeliculas/${movie.id}`}
+              state= {{movieDetails: movie }}
+          > <Item className='img-grid'>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}  alt='guerra' style={{  borderRadius: "16px",width: '100%', height: '100%' }}/>
+          <button>+Mi lista</button>
           </Item>
+          </Link>
         </Grid>
     
 

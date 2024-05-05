@@ -8,6 +8,7 @@ import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
 import Navegador from './NavBTSP'
 import { FaHome } from "react-icons/fa";
+import CustomizedMenus from './CustomizedMenus'
 
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
@@ -45,9 +46,12 @@ const elementosMenu2 = [
   {url:'/Favoritos', texto: 'Mis favoritos' },
 ]
 
+const objGeneros = <CustomizedMenus/>
+
+
   return (
     < >
-    <Navegador items= {elementosMenu2} />
+    <Navegador items= {elementosMenu2}  generos = {objGeneros} />
     <SliderCatalogo/>
         <SImplePaper/>
         <Pelislider id="slider1" tituloSlider= "Aventura" />

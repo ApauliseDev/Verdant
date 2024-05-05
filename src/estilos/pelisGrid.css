@@ -33,6 +33,22 @@
 
 .img-grid{
   box-shadow: none !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+
+}
+.img-grid button {
+ margin-right: 15px;
+ margin-bottom: 15px;
+ font-size: 25px;
+ position:absolute;
+ color: white;
+ background-color:none ;
+
+
+
 }
 
 .img-grid img{
