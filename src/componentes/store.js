@@ -21,7 +21,7 @@ const initialState = {
 
  export const { guardarUsuario, limpiarUsuario } = usuarioSlice.actions;
 
-  const store = configureStore({
+ export  const store = configureStore({
     reducer: usuarioSlice.reducer,
   });
   
