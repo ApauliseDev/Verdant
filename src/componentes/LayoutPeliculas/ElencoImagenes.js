@@ -4,13 +4,17 @@ import ImageListItem from '@mui/material/ImageListItem';
 import "../../estilos/ElencoImagenes.css";
 
 export function ElencoImagenes() {
+
   return (
     <div>
       <ImageList cols={5}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
-            <img srcSet={item.img} src={item.img} alt={item.title} />
-          </ImageListItem>
+            <img srcSet={item.img} src={item.img} alt={item.title} id="imagen-redondeada" />
+            <div className="overlay">
+              <div className="name">{item.name}</div>
+            </div>
+        </ImageListItem>
         ))}
       </ImageList>
     </div>
@@ -20,24 +24,29 @@ export function ElencoImagenes() {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62',
+    img: 'imagenes/AbY-godzilla.jpg',
     title: 'Candle',
+    name: "Kaylee Hottle",
   },
   {
-    img: 'https://images.unsplash.com/photo-1530731141654-5993c3016c77',
+    img: 'imagenes/rebecca-godzilla.jpg',
     title: 'Laptop',
+    name: "Rebecca Hall",
   },
   {
     img: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61',
     title: 'Doors',
+    name: "Freida Pinto",
   },
   {
     img: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7',
     title: 'Coffee',
+    name: "Terry Notary ",
   },
   {
     img: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee',
     title: 'Storage',
+    name: "Tom Felton ",
   }
 ];
 
