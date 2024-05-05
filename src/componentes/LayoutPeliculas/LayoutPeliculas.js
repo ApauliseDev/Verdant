@@ -36,6 +36,7 @@ function LayoutPeliculas() {
       poster= {movieDetails.poster_path}
       title = {movieDetails.title}
       sinopsis = {movieDetails.overview}
+      id={movieDetails.id}
     />
     <Video id={movieDetails.id} title={movieDetails.title} url={movieDetails.url}/>
     

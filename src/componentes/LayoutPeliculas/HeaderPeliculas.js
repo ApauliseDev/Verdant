@@ -1,7 +1,7 @@
 import React from "react";
 import "../../estilos/headerPeliculas.css";
 import RatingStars from "./RatingStars";
-import {ElencoImagenes} from "./ElencoImagenes"
+import ElencoImagenes from "./ElencoImagenes"
 import { Margin } from "@mui/icons-material";
 
 function HeaderPeliculas(props) {
@@ -30,7 +30,7 @@ function HeaderPeliculas(props) {
           <h6> Descripción general</h6>
           <p>{props.sinopsis} </p>
 
-          <ElencoImagenes/>
+          <ElencoImagenes movieId={props.id}/>
           
         </article>
       </section>
