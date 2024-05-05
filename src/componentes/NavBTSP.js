@@ -5,8 +5,11 @@ import {Link} from 'react-router-dom'
 import {Boton} from './LayaoutIndex/Botones'
 import '../estilos/NavBTSP.css'
 import CustomizedMenus from './CustomizedMenus';
+import  {useLocation} from 'react-router-dom'
 
 function Navegador(props) {
+  const location = useLocation()
+
   return (
     <Navbar data-bs-theme="dark" collapseOnSelect expand="lg" fixed="top" className="fondoNav justify-content-between">
       <Container style={{paddingTop: "15px"}}>
@@ -24,7 +27,9 @@ function Navegador(props) {
             <Link className="link" to="/LayoutCatalogo">Catálogo</Link>
             <Link className="link" to="/LayoutPeliculas">Peliculas</Link> */}
           </Nav>
-          <Boton className="boton-regist"  title="Registrarse" />
+         
+          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />: props.perfil}
+     
         </Navbar.Collapse>
       </Container>
     </Navbar>

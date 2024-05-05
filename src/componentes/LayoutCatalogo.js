@@ -7,8 +7,9 @@ import {SliderCatalogo} from './SliderCatalogo'
 import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
 import Navegador from './NavBTSP'
-import { FaHome } from "react-icons/fa";
 import CustomizedMenus from './CustomizedMenus'
+import AccountMenu from './AccountMenu'
+import  { useSelector } from 'react-redux';
 
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
@@ -25,19 +26,7 @@ const MovieSlide = ({ imageUrl, title }) => (
 
 function LayoutCatalogo() {
 
-const sliderAventura = {
-  imagenes: [  "/Imagenes/planetaSimios.png",
-  "/Imagenes/Uncharted.jpg",
-  "/Imagenes/guerra4.jpg",
-  "/Imagenes/.jpg" ,
-  "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" ,
-  "/Imagenes/guerra4.jpg" ],
-  a: 'Aventura'
-}
-
+const usuario = useSelector((state)=> state.usuario)
 
 
 const elementosMenu2 = [
@@ -47,11 +36,11 @@ const elementosMenu2 = [
 ]
 
 const objGeneros = <CustomizedMenus/>
-
+const accountMenu = <AccountMenu user = {usuario}    />
 
   return (
     < >
-    <Navegador items= {elementosMenu2}  generos = {objGeneros} />
+    <Navegador items= {elementosMenu2}  generos = {objGeneros} perfil= {accountMenu} />
     <SliderCatalogo/>
         <SImplePaper/>
         <Pelislider id="slider1" tituloSlider= "Aventura" />
@@ -59,8 +48,6 @@ const objGeneros = <CustomizedMenus/>
         <Pelislider tituloSlider = "Romance"/>
         <Pelislider tituloSlider = "Comedia"/>
         <Pelislider tituloSlider = "Guerra"/>
-
-
 
     </>
   )

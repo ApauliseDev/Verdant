@@ -12,12 +12,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { register } from 'swiper/element/bundle';
 import PelisGrid from './componentes/PelisGrid';
 import Favoritos from './componentes/Favoritos'
+
+
 // register Swiper custom elements
 register();
 
 
 function App() {
   return (
+
     <BrowserRouter>
       <div className="app">
         <Routes>

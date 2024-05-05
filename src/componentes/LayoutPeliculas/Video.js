@@ -39,8 +39,8 @@ function Video(props) {
         <iframe
             title={props.title}
             src={videoUrl}
-            width="550"
-            height="450"
+            width="80%"
+            height="700"
             frameBorder="0"
             allowFullScreen
         />
