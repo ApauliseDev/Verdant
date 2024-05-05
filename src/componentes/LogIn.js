@@ -7,7 +7,8 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import "../estilos/footer.css";
 import { ImOpt } from "react-icons/im";
 import LayoutCatalogo from './LayoutCatalogo'
-
+import { useDispatch } from 'react-redux';
+import {guardarUsuario} from './store'; 
 
 
 const usuarios = [
@@ -23,8 +24,8 @@ function LogIn(props) {
   const [error, setError] = useState("");
   const [action, setAction] = useState("Login");
   const [denegade,setDenegade] = useState(true);
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
 
   const handleSubmit = (event) => {
@@ -54,6 +55,7 @@ function LogIn(props) {
     setError("")
     setDenegade(false)
     console.log("¡LogIn exitoso");
+    dispatch(guardarUsuario(user)); // Guarda datos en el store
     navigate('/LayoutCatalogo')
 
     

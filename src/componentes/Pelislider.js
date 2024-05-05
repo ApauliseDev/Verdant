@@ -97,7 +97,7 @@ function Pelislider(props)    {
       <Slider {...settings}> 
 
         <div>
-          <Link to ="/LayoutPeliculas"  >  <img src="/Imagenes/planetaSimios.png"  alt='guerra'/> </Link>
+          <img src="/Imagenes/planetaSimios.png"  alt='guerra'/>
         </div>
         <div>
         <img src="/Imagenes/Uncharted.jpg"  alt='guerra'/>

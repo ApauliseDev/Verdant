@@ -34,28 +34,39 @@
 .img-grid{
   box-shadow: none !important;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: end;
+
 
 
 }
-.img-grid button {
+#boton-poster {
+  display: none;
  margin-right: 15px;
  margin-bottom: 15px;
- font-size: 25px;
+ font-size: 18px;
  position:absolute;
  color: white;
- background-color:none ;
+ background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+ border: solid 2px #5bd635;
+ padding: 5px 10px; /* Espaciado interno */
+ transition: background-color 0.5s; /* Transición suave al cambiar el color de fondo */
+ z-index: 1;
+ opacity: 0;
+ transition: opacity 0.9s;
 
+}
+.img-grid:hover #boton-poster{
+  display: block;
+  opacity: 1;
+}
 
-
+#boton-poster:hover {
+  background-color: rgba(0, 128, 0, 0.5);
 }
 
 .img-grid img{
     transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Transición suave para transformaciones y sombra */
-
-
-
 }
 
 .img-grid img:hover{
@@ -70,7 +81,7 @@
 
 #demo-customized-button{
   border-radius: 16px;
-  background: linear-gradient(to right, #52A13B, #123D05); ;
+  background: linear-gradient(to right, #52A13B, #123D05); 
   font-family: "Cinzel semibold";
 
 }

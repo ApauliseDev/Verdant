@@ -10,12 +10,12 @@ function HeaderPeliculas(props) {
   return (
     <header id="layout-header">
       <div className="header-banner">
-        <img src={`https://image.tmdb.org/t/p/original${props.wallpaper}`} alt="Gozilla Banner" />
+        <img src={`https://image.tmdb.org/t/p/original${props.wallpaper}`} alt={props.title} />
         <div className="header-shadow"> </div>
       </div>
       <section className="header-content-box">
         <div className="cartelera-img">
-          <img src={`https://image.tmdb.org/t/p/w500${props.poster}`} alt="Gozilla imagen cartelera" />
+          <img src={`https://image.tmdb.org/t/p/w500${props.poster}`} alt={props.title} />
           <RatingStars />
         </div>
         <article className="movie-info">

@@ -7,8 +7,9 @@ import {SliderCatalogo} from './SliderCatalogo'
 import SImplePaper from './SImplePaper'
 import Pelislider from './Pelislider'
 import Navegador from './NavBTSP'
-import { FaHome } from "react-icons/fa";
 import CustomizedMenus from './CustomizedMenus'
+
+import  { useSelector } from 'react-redux';
 
 const MovieSlide = ({ imageUrl, title }) => (
   <div>
@@ -59,8 +60,6 @@ const objGeneros = <CustomizedMenus/>
         <Pelislider tituloSlider = "Romance"/>
         <Pelislider tituloSlider = "Comedia"/>
         <Pelislider tituloSlider = "Guerra"/>
-
-
 
     </>
   )
