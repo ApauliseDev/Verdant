@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const TmdbMovie = () => {
-
-
-    const[movielist,setMovielist] = useState([])
+  const [movielist, setMovielist] = useState([]);
 
   const getMovie = () => {
     fetch(
@@ -17,19 +15,15 @@ const TmdbMovie = () => {
     getMovie();
   }, []);
 
-  console.log(movielist)
+  console.log(movielist);
 
-  return(
-    <div> 
-    {movielist.map((movie)=>(
-        <img  src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path
-}`}   />
-    
-   
-
-    ))}
+  return (
+    <div>
+      {movielist.map((movie) => (
+        <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+      ))}
     </div>
-)
+  );
 };
 
 export default TmdbMovie;

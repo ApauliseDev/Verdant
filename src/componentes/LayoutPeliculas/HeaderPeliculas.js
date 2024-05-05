@@ -2,10 +2,11 @@ import React from "react";
 import "../../estilos/headerPeliculas.css";
 import RatingStars from "./RatingStars";
 import {ElencoImagenes} from "./ElencoImagenes"
+import { Margin } from "@mui/icons-material";
 
 function HeaderPeliculas(props) {
   const genero = ["Romance", "Accion", "Guerra"];
-
+  
   return (
     <header id="layout-header">
       <div className="header-banner">
@@ -18,7 +19,7 @@ function HeaderPeliculas(props) {
           <RatingStars />
         </div>
         <article className="movie-info">
-          <h2> {props.title} </h2>
+          <h2 style={{margin: "20px"}}> {props.title} </h2>
           <div className="generos-pelicula">
             {genero.map((genero, index) => (
               <p key={index} className="genero">
@@ -28,7 +29,9 @@ function HeaderPeliculas(props) {
           </div>
           <h6> Descripción general</h6>
           <p>{props.sinopsis} </p>
+
           <ElencoImagenes/>
+          
         </article>
       </section>
     </header>

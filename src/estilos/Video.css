@@ -1,0 +1,6 @@
+.video-item {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /*box-shadow: 0 0 10px #53a13b;  Sombra con color verde */
+}
