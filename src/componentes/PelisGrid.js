@@ -92,15 +92,16 @@ useEffect( ()=>{
         <h2>Peliculas</h2>
         {/* buscador */}
         <form onSubmit={searchMovies}> 
-        <input style={ {border:"solid green" ,fontSize: "15px"} }  type="text" placeholder="Search a movie" onChange={(e)=> 
+        <input className="input-busqueda" type="text" placeholder="Search a movie" onChange={(e)=> 
 
         setSearchKey(e.target.value) && searchMovies
         }
         >
         </input>
-        <button> Search </button>
+        <button className="boton-buscar"> Search </button>
         </form>
       </div>
+      
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
         <Grid container spacing={0.1}>
           {movielist.map((movie) => (

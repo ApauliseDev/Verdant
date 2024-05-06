@@ -21,13 +21,53 @@
 .contenedor-titulo-peliculas{
     font-family: "Cinzel bold";
     margin-left: 60px;
-    color: antiquewhite;
+    color: #fff;
     font-size: 10px;
     margin-top: 110px; 
     position:absolute;
     display: flex;
     gap: 20px;
 
+}
+
+/* ----- BUSCADOR ----- */
+
+.input-busqueda {
+  margin-left: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+  color: #5bd635; /* Color de las letras del placeholder */
+  transition: border-color 0.3s ease; /* Transición para el borde */
+  box-shadow: 0 0 5px #5bd635; /* Sombra verde */
+}
+
+.input-busqueda:hover {
+  border: solid 2px #5bd635; /* Cambia el borde al enfocar el input */
+}
+
+.input-busqueda:focus {
+  border: solid 2px #5bd635; /* Cambia el borde al enfocar el input */
+}
+
+.boton-buscar {
+  padding: 10px 20px;
+  margin-left: 15px;
+  border-color: #5bd635;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s ease-in-out; /* Transición para el color de fondo */
+}
+
+.boton-buscar:hover {
+  
+  color: black;
+  border-color: #5bd635;
+  background-color: #5bd635; /* Cambia el color de fondo al pasar el mouse */
 }
 
 
