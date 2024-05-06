@@ -36,11 +36,11 @@ const elementosMenu2 = [
 ]
 
 const objGeneros = <CustomizedMenus/>
-const accountMenu = <AccountMenu user = {usuario}    />
+
 
   return (
     < >
-    <Navegador items= {elementosMenu2}  generos = {objGeneros} perfil= {accountMenu} />
+    <Navegador items= {elementosMenu2}  generos = {objGeneros}  />
     <SliderCatalogo/>
         <SImplePaper/>
         <Pelislider id="slider1" tituloSlider= "Aventura" />

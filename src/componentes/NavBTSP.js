@@ -6,9 +6,12 @@ import {Boton} from './LayaoutIndex/Botones'
 import '../estilos/NavBTSP.css'
 import CustomizedMenus from './CustomizedMenus';
 import  {useLocation} from 'react-router-dom'
+import  { useSelector } from 'react-redux';
+import AccountMenu from './AccountMenu';
 
 function Navegador(props) {
   const location = useLocation()
+  const usuario = useSelector((state)=> state.usuario)
 
   return (
     <Navbar data-bs-theme="dark" collapseOnSelect expand="lg" fixed="top" className="fondoNav justify-content-between">
@@ -23,12 +26,9 @@ function Navegador(props) {
             ))}
             {props.generos}
            
-            {/* <Link className="link"  to="/">Inicio</Link>
-            <Link className="link" to="/LayoutCatalogo">Catálogo</Link>
-            <Link className="link" to="/LayoutPeliculas">Peliculas</Link> */}
           </Nav>
          
-          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />: props.perfil}
+          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />:  <AccountMenu user = {usuario}/>}
      
         </Navbar.Collapse>
       </Container>

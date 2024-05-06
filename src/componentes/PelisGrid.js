@@ -11,6 +11,7 @@ import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios'
 import  YouTube  from 'react-youtube';
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "transparent",
   ...theme.typography.body2,
@@ -26,6 +27,15 @@ const elementosMenu2 = [
   { url: "/PelisGrid", texto: "Peliculas" },
   { url: "/Favoritos", texto: "Mis favoritos" },
 ];
+
+
+const generos = <CustomizedMenus/>
+/*------------------------------------------------------------------*/
+
+
+
+
+
 
 function PelisGrid() {
   const API_URL = 'https://api.themoviedb.org/3'
@@ -50,8 +60,10 @@ function PelisGrid() {
       query: searchKey,
     }
   })
-  setMovielist(results)
-  setMovie(results[0])
+
+  const filteredResults = results.filter(movie => movie.poster_path !== null);
+  setMovielist(filteredResults)
+  setMovie(filteredResults[0])
 }
 
 
@@ -62,11 +74,10 @@ fechMovies(searchKey)
 }
 
 
-useEffect( ()=>{
-  fechMovies();
-
-
-},[] )
+useEffect(() => {
+  // Llamar a fetchMovies con el valor actual de searchKey
+  fechMovies(searchKey);
+}, [searchKey])
 
 
 
@@ -86,18 +97,19 @@ useEffect( ()=>{
 
   return (
     <>
-      <Navegador items={elementosMenu2} />
+      <Navegador items={elementosMenu2} generos= {generos}  />
 
       <div className="contenedor-titulo-peliculas">
         <h2>Peliculas</h2>
         {/* buscador */}
         <form onSubmit={searchMovies}> 
-        <input className="input-busqueda" type="text" placeholder="Search a movie" onChange={(e)=> 
-
-        setSearchKey(e.target.value) && searchMovies
-        }
-        >
-        </input>
+        <input
+            className="input-busqueda"
+            type="text"
+            placeholder="Search a movie"
+            value={searchKey}
+            onChange={(e) => setSearchKey(e.target.value)}
+          />
         <button className="boton-buscar"> Search </button>
         </form>
       </div>
