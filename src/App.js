@@ -29,7 +29,7 @@ function App() {
           <Route path="/LayoutCatalogo" element= {<LayoutCatalogo/>}/>
           <Route path="/LayoutPeliculas" element={<LayoutPeliculas/>}/> 
           <Route path="/PelisGrid" element= {<PelisGrid/>}/>
-          <Route path="/LayoutPeliculas/:movieId" element = {<LayoutPeliculas/>}> </Route>
+          <Route path="/LayoutPeliculas/:name" element = {<LayoutPeliculas/>}> </Route>
           <Route path="/Favoritos" element = <Favoritos/> > </Route>
         </Routes>                                                                     
       </div>
