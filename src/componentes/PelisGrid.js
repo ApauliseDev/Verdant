@@ -9,7 +9,7 @@ import CustomizedMenus from "./CustomizedMenus";
 import { Link } from "react-router-dom";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios'
-import  YouTube  from 'react-youtube';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -23,9 +23,9 @@ const Item = styled(Paper)(({ theme }) => ({
 /*------------------------------------------------------------------*/
 
 const elementosMenu2 = [
-  { url: "/LayoutCatalogo", texto: "Inicio" },
-  { url: "/PelisGrid", texto: "Peliculas" },
-  { url: "/Favoritos", texto: "Mis favoritos" },
+  { url: "/LayoutCatalogo", texto: "Home" },
+  { url: "/PelisGrid", texto: "Movies" },
+  { url: "/Favoritos", texto: "WatchList" },
 ];
 
 
@@ -123,7 +123,7 @@ useEffect(() => {
               <Item className="img-grid">
                 <Link
                   key={movie.id}
-                  to={`/LayoutPeliculas/${movie.title}`}
+                  to={`/LayoutPeliculas/${movie.original_title}`}
                   state={{ movieDetails: movie }}
                 >
                   <img

@@ -11,9 +11,9 @@ import Video from './Video'
 function LayoutPeliculas() {
 
   const elementosMenu = [
-    {url:"/LayoutCatalogo",texto:'Inicio' },
-    {url:'/PelisGrid',texto: 'Peliculas' },
-    {url:'/Favoritos', texto: 'Mis favoritos' },
+    {url:"/LayoutCatalogo",texto:'Home' },
+    {url:'/PelisGrid',texto: 'Movies' },
+    {url:'/Favoritos', texto: 'WatchList' },
   ]
   
   const location = useLocation();
@@ -24,6 +24,8 @@ function LayoutPeliculas() {
       setMovieDetails(location.state.movieDetails);
     }
   }, [location]);
+
+
 
  
 

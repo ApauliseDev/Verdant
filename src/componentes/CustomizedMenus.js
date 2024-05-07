@@ -74,7 +74,7 @@ const StyledMenu = styled((props) => (
           onClick={handleClick}
           endIcon={<KeyboardArrowDownIcon />}
         >
-          Generos  
+          Genres  
         </Button>
         <StyledMenu
           id="demo-customized-menu"
@@ -87,11 +87,11 @@ const StyledMenu = styled((props) => (
         >
           <MenuItem onClick={handleClose} disableRipple>
             <EditIcon />
-            Aventura  
+            Adventure  
           </MenuItem>
           <MenuItem onClick={handleClose} disableRipple>
             <FileCopyIcon />
-            Comedia
+            Comedy
           </MenuItem>
           <MenuItem onClick={handleClose} disableRipple>
             <ArchiveIcon />
@@ -99,7 +99,7 @@ const StyledMenu = styled((props) => (
           </MenuItem>
           <MenuItem onClick={handleClose} disableRipple>
             <MoreHorizIcon />
-            Guerra
+            War
           </MenuItem>
         </StyledMenu>
       </div>
