@@ -43,11 +43,7 @@ const objGeneros = <CustomizedMenus/>
     <Navegador items= {elementosMenu2}  generos = {objGeneros}  />
     <SliderCatalogo/>
         <SImplePaper/>
-        <Pelislider id="slider1" tituloSlider= "Aventura" />
-        <Pelislider tituloSlider = "Terror"/>
-        <Pelislider tituloSlider = "Romance"/>
-        <Pelislider tituloSlider = "Comedia"/>
-        <Pelislider tituloSlider = "Guerra"/>
+        <Pelislider/>
 
     </>
   )

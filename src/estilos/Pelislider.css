@@ -1,17 +1,37 @@
+@font-face {
+   font-family: 'Dokdo';
+   src: url('../fonts/Dokdo/Dokdo-Regular.ttf') format('truetype');
+   /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+ }
+ 
+ @font-face {
+   font-family: 'Cinzel bold';
+   src: url('../fonts/Cinzel/Cinzel-Bold.ttf') format('truetype');
+   /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+ }
+   
+ @font-face {
+   font-family: 'Cinzel regular';
+   src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+   /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+ }
+ 
+ @font-face {
+   font-family: 'Cinzel semibold';
+   src: url('../fonts/Cinzel/Cinzel-SemiBold.ttf') format('truetype');
+   /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+ }
 
 .slick-slide div{
     display: flex !important;
     justify-content: center !important;
-    margin-top: 20px !important;
-
-
-    
+    margin-top: 20px !important; 
 }
+
 .slick-slide div img{
     border-radius: 16px;
-    width: 329px;
-    height: 184px;
-
+    width: 90%;
+    height: 90%;
  }
 
 
@@ -19,13 +39,9 @@
     width: 328px !important;
  }
 
- .slick-next{
-    right: 0px;
-    margin-top: 20px;
- }
+
 
  .slick-next:before{
-
    font-size: 30px;
    color: #3D9133
  }
@@ -35,10 +51,38 @@
    color: #3D9133
  }
 
- .container {
-    max-width: 1750px !important;
-    margin-bottom: 20px ;
-
+ .container-slider {
+    width: 90% !important;
+    margin-left: 5%;
+    margin-right: 5%;
  }
 
+ .titulo-slider{
+   font-family: 'Cinzel bold';
+   margin-left: 5%;
+   color: #fff;
+ }
+
+ @media screen and (max-width: 1050px) {
+   .titulo-slider{
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+}
+
  
+@media screen and (max-width: 1050px) {
+   .slick-slide div img{
+      width: 80%;
+      height: 80%;
+   }
+}
+
+
+@media screen and (max-width: 710px) {
+   .slick-slide div img{
+      width: 70%;
+      height: 60%;
+   }
+}
