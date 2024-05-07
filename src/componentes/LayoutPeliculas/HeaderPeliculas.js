@@ -21,7 +21,7 @@ function HeaderPeliculas(props) {
         <article className="movie-info">
           <h2 style={{margin: "20px"}}> {props.title} </h2>
           <Generos generosId={props.id}/>
-          <h6> Descripción general</h6>
+          <h6> Overview</h6>
           <p>{props.sinopsis} </p>
 
           <ElencoImagenes movieId={props.id} />

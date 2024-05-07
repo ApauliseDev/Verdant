@@ -12,9 +12,9 @@ import {guardarUsuario} from './store';
 
 
 const usuarios = [
-  {nombre:"Julian",usuario: "julian@gmail.com",contraseña: "123"},
-  {nombre:"Pepe", usuario: "pepe@gmail.com",contraseña: "234"},
-  {nombre:"Tuti", usuario: "tuti@gmail.com",contraseña: "juan"},
+  {usuario: "julian@gmail.com",contraseña: "123"},
+  { usuario: "pepe@gmail.com",contraseña: "234"},
+  { usuario: "tuti@gmail.com",contraseña: "juan"},
 ]
 
 
@@ -24,7 +24,6 @@ function LogIn(props) {
   const [error, setError] = useState("");
   const [action, setAction] = useState("Login");
   const [denegade,setDenegade] = useState(true);
-  const [nombre,setNombre ] = useState("") 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -41,7 +40,6 @@ function LogIn(props) {
     
     const cuenta = usuarios.find(cuenta  => cuenta.usuario === user)
     console.log(cuenta)
-    setNombre(cuenta.nombre)
   
     if (!cuenta) {
       setError('cuenta no encontrada');

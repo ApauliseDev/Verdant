@@ -42,6 +42,39 @@ function PelisGrid() {
   const API_KEY = '0023db00b52250d5bed5debec71d21fb'
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/original'
   const URL_IMAGE = 'https://image.tmdb.org/t/p/original'
+  const ACCOUNT_ID = '21241850'
+
+
+//Agregar a WatchList
+
+const agregarPelicula = (movieId) => {
+  const url = `https://api.themoviedb.org/3/account/${ACCOUNT_ID}/watchlist`;
+
+  const data = {
+    media_type: 'movie',
+    media_id: movieId,
+    watchlist: true
+  };
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Película agregada a tu watchlist correctamente');
+    } else {
+      console.error('Error al agregar la película a tu watchlist');
+    }
+  })
+  .catch(error => {
+    console.error('Error al realizar la petición:', error);
+  });
+};
+
 
 //variables de estado
 
@@ -59,7 +92,6 @@ function PelisGrid() {
     params:{
       api_key: API_KEY,
       query: searchKey,
-      with_cast: actorOrDirector,
     }
   })
 
@@ -136,7 +168,10 @@ useEffect(() => {
                     }}
                   />
                 </Link>
-                <button id="boton-poster">{<PlaylistAddIcon/>} Mi lista</button>
+                <button 
+                id="boton-poster"
+                onClick={agregarPelicula(movie.id)}
+                >{<PlaylistAddIcon/>} Mi lista</button>
               </Item>
             </Grid>
           ))}
