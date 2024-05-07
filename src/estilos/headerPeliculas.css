@@ -1,6 +1,6 @@
 #layout-header {
     position: relative;
-    height: auto; /* Ajustar la altura según tu diseño */
+    height: 100vh; /* Ajustar la altura según tu diseño */
     overflow: hidden;
     margin: 0;
     display: flex;
@@ -34,11 +34,11 @@
   }
 
   .header-content-box{
+    padding: 20px;
     display: flex;
     position: relative;
-    padding: 20px;
+    align-items: center;
     color: white; 
-    margin-top: 100px;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;

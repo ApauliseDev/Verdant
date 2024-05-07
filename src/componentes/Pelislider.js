@@ -32,15 +32,15 @@ function Pelislider()    {
           {
             breakpoint: 1355,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3 
+              slidesToShow: 4,
+              slidesToScroll: 4 
             }
           },
           {
             breakpoint: 1047,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
+              slidesToShow: 3,
+              slidesToScroll: 3,
               initialSlide: 2
             }
           },
@@ -48,7 +48,11 @@ function Pelislider()    {
             breakpoint: 709,
             settings: {
               slidesToShow: 2,
+<<<<<<< HEAD
               slidesToScroll: 2
+=======
+              slidesToScroll: 1
+>>>>>>> 2878b555a8c416d5ead738cfbffbd7b379683200
             }
           }
         ]

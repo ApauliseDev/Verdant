@@ -3,7 +3,6 @@ import '../../estilos/Video.css'
 
 function Video(props) {
   const [videoKey, setVideoKey] = useState([]);
-
   useEffect(() => {
     // Función para cargar los videos de la película desde TMDb
     const fetchVideo = async () => {
@@ -14,7 +13,9 @@ function Video(props) {
 
         // Verifica si hay videos disponibles y establece el videoKey en el estado
         if (data.results && data.results.length > 0) {
-          setVideoKey(data.results[0].key);
+          
+          const videoKey =data.results.find((vid) => vid.name === "Official Trailer" ||vid.name === "Trailer"   );
+          setVideoKey( videoKey ? videoKey.key : data.results[0].key);
         }
       } catch (error) {
         console.error('Error al cargar los videos:', error);
