@@ -48,11 +48,7 @@ function Pelislider()    {
             breakpoint: 709,
             settings: {
               slidesToShow: 2,
-<<<<<<< HEAD
-              slidesToScroll: 2
-=======
               slidesToScroll: 1
->>>>>>> 2878b555a8c416d5ead738cfbffbd7b379683200
             }
           }
         ]
@@ -94,7 +90,12 @@ function Pelislider()    {
               <Slider {...settings}>
                 {movies[index]?.results?.map(movie => (
                   <div key={movie.id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                    <Link
+                      key={movie.id}
+                      to={`/LayoutPeliculas/${movie.original_title}`}
+                      state={{ movieDetails: movie }}
+                    
+                    > <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /></Link>
                   </div>
                 ))}
               </Slider>

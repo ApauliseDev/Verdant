@@ -26,12 +26,7 @@
 .slick-slide div{
     display: flex !important;
     justify-content: center !important;
-<<<<<<< HEAD
-    margin-top: 20px !important; 
-    
-=======
  
->>>>>>> 2878b555a8c416d5ead738cfbffbd7b379683200
 }
 
 .slick-slide div img{
@@ -92,11 +87,7 @@
 @media screen and (max-width: 710px) {
    .slick-slide div img{
       width: 90%;
-<<<<<<< HEAD
-      height: 80%;
-=======
       height: 100%;
->>>>>>> 2878b555a8c416d5ead738cfbffbd7b379683200
    }
 }
 
