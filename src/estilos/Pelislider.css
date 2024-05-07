@@ -22,10 +22,12 @@
    /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
  }
 
+
 .slick-slide div{
     display: flex !important;
     justify-content: center !important;
     margin-top: 20px !important; 
+    
 }
 
 .slick-slide div img{
@@ -33,6 +35,13 @@
     width: 90%;
     height: 90%;
  }
+
+ .slick-slide div img:hover{
+ transition: 0.2s !important;
+ outline: 3px solid white;
+ outline-offset: 3px ;
+ transform: scale(1.03); 
+}
 
 
  .slick-slide slick-active{
@@ -82,7 +91,7 @@
 
 @media screen and (max-width: 710px) {
    .slick-slide div img{
-      width: 70%;
-      height: 60%;
+      width: 90%;
+      height: 80%;
    }
 }

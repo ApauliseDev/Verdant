@@ -40,6 +40,7 @@ const objGeneros = <CustomizedMenus/>
 
   return (
     < >
+    
     <Navegador items= {elementosMenu2}  generos = {objGeneros}  />
     <SliderCatalogo/>
         <SImplePaper/>
