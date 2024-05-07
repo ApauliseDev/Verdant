@@ -32,22 +32,22 @@ function Pelislider()    {
           {
             breakpoint: 1355,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3 
+              slidesToShow: 4,
+              slidesToScroll: 4 
             }
           },
           {
             breakpoint: 1047,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
+              slidesToShow: 3,
+              slidesToScroll: 3,
               initialSlide: 2
             }
           },
           {
             breakpoint: 709,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               slidesToScroll: 1
             }
           }
