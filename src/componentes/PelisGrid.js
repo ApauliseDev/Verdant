@@ -50,6 +50,7 @@ function PelisGrid() {
   const [trailer,setTrailer] = useState(null);
   const [movie,setMovie] = useState({title:"Loading Movies"});
   const[ playing,setPlaying] = useState(false);
+  
 
   const fechMovies = async(searchKey) =>{
     const type = searchKey ? "search": "discover"
@@ -58,6 +59,7 @@ function PelisGrid() {
     params:{
       api_key: API_KEY,
       query: searchKey,
+      with_cast: actorOrDirector,
     }
   })
 

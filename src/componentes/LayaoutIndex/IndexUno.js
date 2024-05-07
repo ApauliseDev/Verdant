@@ -24,7 +24,7 @@ function IndexUno() {
           EXPLORA UN MUNDO DE ENTRETENIMIENTO
         </h1> 
         <h1 className = "title"style={{ color: "#2DB11B" }}>SIN LÍMITES</h1>
-        <p className="texto">¡Únete hoy mismo a nuestra comunidad de amantes del cine y las series! </p>
+        <p className="texto">¡Únete hoy mismo a nuestra comunidad de amantes del cine! </p>
         <p className="texto"> Regístrate ahora para calificar, reseñar, acceder a contenido exclusivo y mucho más. ¡No esperes más!</p>
         <div className="Botones-index">
           <Link id="boton-link" to = "/LogIn"><Boton title='Unite Ahora' /> </Link> 
