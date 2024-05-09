@@ -40,49 +40,20 @@ const generos = <CustomizedMenus/>
 function PelisGrid() {
   const API_URL = 'https://api.themoviedb.org/3'
   const API_KEY = '0023db00b52250d5bed5debec71d21fb'
-  const IMAGE_PATH = 'https://image.tmdb.org/t/p/original'
-  const URL_IMAGE = 'https://image.tmdb.org/t/p/original'
-  const ACCOUNT_ID = '21241850'
+  const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500'
+  const URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 
 
 //Agregar a WatchList
 
-const agregarPelicula = (movieId) => {
-  const url = `https://api.themoviedb.org/3/account/${ACCOUNT_ID}/watchlist`;
-
-  const data = {
-    media_type: 'movie',
-    media_id: movieId,
-    watchlist: true
-  };
-
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    if (response.ok) {
-      console.log('Película agregada a tu watchlist correctamente');
-    } else {
-      console.error('Error al agregar la película a tu watchlist');
-    }
-  })
-  .catch(error => {
-    console.error('Error al realizar la petición:', error);
-  });
-};
 
 
 //variables de estado
 
   const [movielist, setMovielist] = useState([]);
   const [searchKey,setSearchKey] = useState('');
-  const [trailer,setTrailer] = useState(null);
   const [movie,setMovie] = useState({title:"Loading Movies"});
-  const[ playing,setPlaying] = useState(false);
+
   
 
   const fechMovies = async(searchKey) =>{
@@ -170,7 +141,6 @@ useEffect(() => {
                 </Link>
                 <button 
                 id="boton-poster"
-                onClick={agregarPelicula(movie.id)}
                 >{<PlaylistAddIcon/>} Mi lista</button>
               </Item>
             </Grid>

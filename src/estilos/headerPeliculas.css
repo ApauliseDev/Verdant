@@ -1,3 +1,30 @@
+
+@font-face {
+  font-family: 'Dokdo';
+  src: url('../fonts/Dokdo/Dokdo-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel bold';
+  src: url('../fonts/Cinzel/Cinzel-Bold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+  
+@font-face {
+  font-family: 'Cinzel regular';
+  src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel semibold';
+  src: url('../fonts/Cinzel/Cinzel-SemiBold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+
+
 #layout-header {
     position: relative;
     height: 100vh; /* Ajustar la altura según tu diseño */
@@ -65,6 +92,23 @@
     justify-content: flex-start;
     text-align: start;
     max-width: 900px;
+  }
+
+  .movie-info h2{
+    font-family: 'Cinzel bold';
+
+  }
+  .movie-info p{
+    font-family: 'Cinzel ';
+
+  }
+  .movie-info h6{
+    font-family: 'Cinzel semibold';
+
+  }
+  .movie-info Generos{ 
+    font-size: 'Cinzel Bold';
+
   }
 
   .reparto{

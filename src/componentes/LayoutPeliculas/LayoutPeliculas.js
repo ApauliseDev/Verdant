@@ -28,7 +28,7 @@ function LayoutPeliculas() {
 
 
  
-
+  window.scrollTo(0, 0); 
   return (
     <> 
     <Navegador items={elementosMenu}/>
