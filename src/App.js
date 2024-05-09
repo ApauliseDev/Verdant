@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { register } from 'swiper/element/bundle';
 import PelisGrid from './componentes/PelisGrid';
 import Favoritos from './componentes/Favoritos'
+import PelisGeneros from './componentes/PelisGeneros'
 
 
 // register Swiper custom elements
@@ -31,6 +32,7 @@ function App() {
           <Route path="/PelisGrid" element= {<PelisGrid/>}/>
           <Route path="/LayoutPeliculas/:name" element = {<LayoutPeliculas/>}> </Route>
           <Route path="/Favoritos" element = <Favoritos/> > </Route>
+          <Route path="/PelisGeneros" element ={<PelisGeneros/>}></Route>
         </Routes>                                                                     
       </div>
       <Footer />

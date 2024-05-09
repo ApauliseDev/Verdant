@@ -22,11 +22,13 @@
    /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
  }
 
-
 .slick-slide div{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 8px;
     display: flex !important;
     justify-content: center !important;
- 
 }
 
 .slick-slide div img{
@@ -51,26 +53,27 @@
 
  .slick-next:before{
    font-size: 30px;
-   color: #3D9133
+   color: #fff
  }
  .slick-prev:before{
-
    font-size: 30px;
-   color: #3D9133
+   color: #fff
  }
 
  .container-slider {
     width: 90% !important;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 5%;
  }
 
  .titulo-slider{
    font-family: 'Cinzel bold';
    margin-left: 5%;
    color: #fff;
-   margin-top: 15px;
-
+   margin-top: 5%;
+   margin-left: 5px;
+   margin-bottom: 10px;
  }
 
  @media screen and (max-width: 1050px) {

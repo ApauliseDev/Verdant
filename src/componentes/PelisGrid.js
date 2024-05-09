@@ -131,7 +131,7 @@ useEffect(() => {
                 >
                   <img
                     src={`${URL_IMAGE + movie.poster_path}`}
-                    alt="guerra"
+                    alt={movie.name}
                     style={{
                       borderRadius: "16px",
                       width: "100%",

@@ -5,13 +5,18 @@
 
 }
 
-#img-paper:hover{
+#Paper-id:hover{
       transition: 0.2s !important;
       box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Añade una sombra brillante alrededor de la imagen */
       outline: 3px solid white;
       outline-offset: 3px ;
-
       transform: scale(
         1.03
       ); 
+}
+
+.link-papers{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

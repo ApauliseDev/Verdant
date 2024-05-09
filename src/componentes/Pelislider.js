@@ -6,10 +6,7 @@ import '../estilos/Pelislider.css'
 import {Link} from 'react-router-dom'
 
 
-
 function Pelislider()    {
-
-
 
     var settings = {
         dots: false,

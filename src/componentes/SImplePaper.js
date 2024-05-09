@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { Link } from "react-router-dom";
 import '../estilos/simplePaper.css';
 
 const theme = createTheme({
@@ -18,7 +19,7 @@ const theme = createTheme({
   spacing: 8,
   typography: {
     fontFamily: "Dokdo",
-    fontSize: 25,
+    fontSize: 24,
   },
 });
 
@@ -34,7 +35,10 @@ function SimplePaper() {
         for (const genre of genres) {
           const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=0023db00b52250d5bed5debec71d21fb&with_genres=${getGenreId(genre)}`);
           const data = await response.json();
-          genreMoviesData[genre] = data.results[0]; // Tomamos solo la primera película de cada género
+          const firstMovie = data.results.find(movie => !Object.values(genreMoviesData).find(m => m.id === movie.id)); // Encontrar la primera película no repetida
+          if (firstMovie) {
+            genreMoviesData[genre] = firstMovie;
+          }
         }
 
         setGenreMovies(genreMoviesData);
@@ -77,45 +81,51 @@ function SimplePaper() {
           position: "relative",
           "& > :not(style)": {
             m: 1,
-            width: 328,
-            height: 184,
+            width: 255,
           },
         }}
       >
         {Object.entries(genreMovies).map(([genre, movie]) => (
-          <Paper
-            key={genre}
-            elevation={3}
-            sx={{
-              borderRadius: 4,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "end",
-            }}
-          >
-            <img
-              id="img-paper"
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "inherit",
-                filter: "brightness(0.5)"
-              }}
-            />
-            <Typography
-              color="primary"
-              variant="h6"
+          <Link className="link-papers" to={`/PelisGeneros/${getGenreId(genre)}`} key={genre}>
+            <Paper
+              id="Paper-id"
+              elevation={3}
               sx={{
-                position: "absolute",
-                color:"#fff"
+                borderRadius: 4,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "end",
+                position: "relative",
+                // Eliminar o cambiar overflow
+                overflow: "visible",
               }}
             >
-              {genre}
-            </Typography>
-          </Paper>
+              <img
+                id="img-paper"
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  filter: "brightness(0.6)",
+                  objectFit: "cover", // Mantener la relación de aspecto original
+                  borderRadius: "inherit",
+                }}
+              />
+              <Typography
+                color="primary"
+                variant="h6"
+                sx={{
+                  position: "absolute",
+                  color:"#fff",
+                  bottom: 10,
+                  zIndex: 1,
+                }}
+              >
+                {genre}
+              </Typography>
+            </Paper>
+          </Link>
         ))}
       </Box>
     </ThemeProvider>
