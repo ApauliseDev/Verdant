@@ -1,4 +1,6 @@
 
+
+
   @font-face {
     font-family: 'Dokdo';
     src: url('../fonts/Dokdo/Dokdo-Regular.ttf') format('truetype');
@@ -25,8 +27,6 @@
 
 
 
-
-
 .contenedor {
     background: linear-gradient(to bottom, #001100,#001100,  #000); /* Define el degradado inicial */
     display: flex;
@@ -35,6 +35,10 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+
+
+
+
     
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -9,6 +9,8 @@ import CustomizedMenus from "./CustomizedMenus";
 import { Link } from "react-router-dom";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios'
+import {DataContext} from './DataContext'
+import { Check } from "@mui/icons-material";
 
 
 
@@ -21,6 +23,8 @@ const Item = styled(Paper)(({ theme }) => ({
   objectFit: "cover",
 }));
 /*------------------------------------------------------------------*/
+
+
 
 const elementosMenu2 = [
   { url: "/LayoutCatalogo", texto: "Home" },
@@ -46,7 +50,22 @@ function PelisGrid() {
 
 //Agregar a WatchList
 
+const  {porver,setPorver} = useContext(DataContext)
+console.log(porver)
 
+const addToWatchList = (movie) => {
+const check = porver.every(item =>{
+  return item.id !== movie.id
+})
+
+if (check) {
+  setPorver([...porver,movie])
+}else{
+  alert("This movie is already added")
+}
+}
+
+// }
 
 //variables de estado
 
@@ -107,7 +126,8 @@ useEffect(() => {
       <div className="contenedor-titulo-peliculas">
         <h2>Peliculas</h2>
         {/* buscador */}
-        <form onSubmit={searchMovies}> 
+      </div>
+      <form style={{display:"flex", justifyContent:"center"}} onSubmit={searchMovies}> 
         <input
             className="input-busqueda"
             type="text"
@@ -115,9 +135,7 @@ useEffect(() => {
             value={searchKey}
             onChange={(e) => setSearchKey(e.target.value)}
           />
-        <button className="boton-buscar"> Search </button>
         </form>
-      </div>
       
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
         <Grid container spacing={0.1}>
@@ -141,7 +159,12 @@ useEffect(() => {
                 </Link>
                 <button 
                 id="boton-poster"
-                >{<PlaylistAddIcon/>} Mi lista</button>
+                 onClick={()=>{
+                  addToWatchList(movie)
+                 }}
+                >{<PlaylistAddIcon/>} </button>
+                
+                
               </Item>
             </Grid>
           ))}

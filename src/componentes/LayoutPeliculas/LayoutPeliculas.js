@@ -5,6 +5,7 @@ import HeaderPeliculas from "./HeaderPeliculas"
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Video from './Video'
+import {watchlist,setWatchlist} from '../Favoritos'
 
 
 
@@ -17,7 +18,7 @@ function LayoutPeliculas() {
   ]
   
   const location = useLocation();
-  const [movieDetails, setMovieDetails] = useState({});
+const [movieDetails, setMovieDetails] = useState({});
 
   useEffect(() => {
     if (location.state?.movieDetails) {

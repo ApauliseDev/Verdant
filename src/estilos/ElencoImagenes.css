@@ -1,3 +1,30 @@
+
+
+@font-face {
+  font-family: 'Dokdo';
+  src: url('../fonts/Dokdo/Dokdo-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel bold';
+  src: url('../fonts/Cinzel/Cinzel-Bold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+  
+@font-face {
+  font-family: 'Cinzel regular';
+  src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+@font-face {
+  font-family: 'Cinzel semibold';
+  src: url('../fonts/Cinzel/Cinzel-SemiBold.ttf') format('truetype');
+  /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
+}
+
+
 #imagen-redondeada {
     border-radius: 15px;
   }
@@ -37,4 +64,5 @@
     color: white;
     font-size: 16px;
     margin-bottom: 10px;
+    font-family: 'Cinzel regular';
   }
