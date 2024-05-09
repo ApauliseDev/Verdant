@@ -24,7 +24,6 @@
     color: #fff;
     font-size: 10px;
     margin-top: 110px; 
-    position:absolute;
     display: flex;
     gap: 20px;
 
@@ -33,10 +32,12 @@
 /* ----- BUSCADOR ----- */
 
 .input-busqueda {
+  height: 60px;
   margin-left: 15px;
+  width: 95%;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
   color: #5bd635; /* Color de las letras del placeholder */
@@ -76,8 +77,8 @@
   display: flex;
   justify-content: center;
   align-items: end;
-
 }
+
 
 #boton-poster {
   display: none;

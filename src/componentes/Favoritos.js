@@ -7,6 +7,10 @@ import { Box, Grid } from '@mui/material'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
+import axios from 'axios'
+import {useContext} from 'react'
+import {DataContext} from './DataContext'
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -17,6 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
   objectFit: "cover",
 }));
 
+
 function Favoritos() {
     const elementosMenu = [
         {url:'/LayoutCatalogo',texto:'Inicio' },
@@ -24,34 +29,28 @@ function Favoritos() {
         {url:'/Favoritos', texto: 'Mis favoritos' }
       ]
 
+const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500'
+const URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
+    
+
 const generos = <CustomizedMenus/>
-const ACCOUNT_ID = '21241850'
-const API_KEY = '0023db00b52250d5bed5debec71d21fb'
-const IMAGE_PATH = 'https://image.tmdb.org/t/p/original'
-const URL_IMAGE = 'https://image.tmdb.org/t/p/original'
-const [watchlistMovies, setWatchlistMovies] = useState([]);
+
+const {porver,setPorver,addToWatched} = useContext(DataContext)
 
 
-  useEffect(() => {
-    const fetchWatchlist = async () => {
-      const url = `https://api.themoviedb.org/3/account/${ACCOUNT_ID}/watchlist/movies?api_key=${API_KEY}&language=en-US&sort_by=created_at.asc`;
+const removeFromPorver = (movie) =>{
+  const updater = [...porver]
+  updater.forEach((item,index)=>{
+    if(item.id === movie.id){
+      updater.splice(index,1)
+    }
+    setPorver(updater)
 
-      try {
-        const response = await fetch(url);
-        if (response.ok) {
-          const data = await response.json();
-          setWatchlistMovies(data.results);
-        } else {
-          console.error('Error al obtener la watchlist:', response.status);
-        }
-      } catch (error) {
-        console.error('Error al realizar la petición:', error);
-      }
-    };
 
-    fetchWatchlist();
-  }, [ACCOUNT_ID, API_KEY]);
 
+  })
+
+}
 
 
 
@@ -59,13 +58,12 @@ const [watchlistMovies, setWatchlistMovies] = useState([]);
   return (
     <>
         <Navegador items= {elementosMenu}  generos = {generos}/>
-        <div>
-            <h2>Mi lista de favoritos</h2>
-            <section className='lista-favs'>
-                
-            <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
+        
+
+        <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
+        <h2 style={{color:"antiquewhite", fontFamily:"Cinzel Semibold"}}>My Watchlist</h2>
         <Grid container spacing={0.1}>
-          {watchlistMovies.map((movie) => (
+        {porver? porver.map((movie) => (
             <Grid xs={6} md={4} lg={3} xl={2.4}>
               <Item className="img-grid">
                 <Link
@@ -84,16 +82,24 @@ const [watchlistMovies, setWatchlistMovies] = useState([]);
                   />
                 </Link>
                 <button 
-                id="boton-poster"
-                >{<PlaylistAddIcon/>} Mi lista</button>
+                style={{border:"none", background:"none"}}
+                id= "boton-poster"
+                 onClick={()=>{
+                  removeFromPorver(movie)
+                 }}
+                > {<RemoveCircleOutlineIcon style={{border:"none",color:"#5AD635", fontSize:"50px"}}/>}</button>
+
               </Item>
             </Grid>
-          ))}
+        )): null }
+
+
         </Grid>
       </Box>
-            </section>
-        </div>
-      
+
+
+
+
     </>
   )
 }

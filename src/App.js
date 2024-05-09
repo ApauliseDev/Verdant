@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { register } from 'swiper/element/bundle';
 import PelisGrid from './componentes/PelisGrid';
 import Favoritos from './componentes/Favoritos'
-
+import {DataProvider} from './componentes/DataContext'
 
 // register Swiper custom elements
 register();
@@ -20,7 +20,7 @@ register();
 
 function App() {
   return (
-
+<DataProvider> 
     <BrowserRouter>
       <div className="app">
         <Routes>
@@ -35,6 +35,7 @@ function App() {
       </div>
       <Footer />
     </BrowserRouter>
+    </DataProvider>
   );
 }
 
