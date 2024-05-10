@@ -57,6 +57,13 @@
   transition:  0.3s ease ; /* Agregamos transición al cambio de fondo */
 }
 
+.contenedor-titulo-peliculas button:hover{
+  background-color: #5bd635;
+}
+
+.contenedor-titulo-peliculas button.active {
+  background-color: #5bd635;
+}
 
 /* ----- BUSCADOR ----- */
 

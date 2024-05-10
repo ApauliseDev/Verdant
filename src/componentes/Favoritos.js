@@ -45,23 +45,17 @@ const removeFromPorver = (movie) =>{
       updater.splice(index,1)
     }
     setPorver(updater)
-
-
-
   })
 
 }
 
-
-
-
   return (
-    <>
+    <><div className='div-fav'>
         <Navegador items= {elementosMenu}  generos = {generos}/>
         
 
         <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
-        <h2 style={{color:"antiquewhite", fontFamily:"Cinzel Semibold"}}>My Watchlist</h2>
+        <h2 style={{color:"#fff", fontFamily:"Cinzel Semibold"}}>My Watchlist</h2>
         <Grid container spacing={0.1}>
         {porver? porver.map((movie) => (
             <Grid xs={6} md={4} lg={3} xl={2.4}>
@@ -98,7 +92,7 @@ const removeFromPorver = (movie) =>{
       </Box>
 
 
-
+      </div>
 
     </>
   )

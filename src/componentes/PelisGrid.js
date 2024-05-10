@@ -62,7 +62,7 @@ const check = porver.every(item =>{
 
 if (check) {
   setPorver([...porver,movie])
-  alert("This movie has been added to your watchlist")
+  alert("Great choice! :)")
 }else{
   alert("This movie is already added")
 }
