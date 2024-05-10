@@ -30,6 +30,12 @@ export default function AccountMenu(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleMyAccountClick = () => {
+    navigate('/MyAccount'); 
+    handleClose(); 
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -81,7 +87,7 @@ export default function AccountMenu(props) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleMyAccountClick}>
           <Avatar /> My account
         </MenuItem>
         <Divider />

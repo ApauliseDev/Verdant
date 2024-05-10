@@ -88,9 +88,11 @@
 .load-buttons button{
   background: linear-gradient(to right, #52A13B, #123D05); 
   font-family: 'Cinzel Bold';
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 20px;
+  font-size: 15px;
+  padding: 6px;
+  font-weight: 500;
+  border-radius: 16px;
+  border: none;
 
 
 }

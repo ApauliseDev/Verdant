@@ -12,11 +12,12 @@ import {guardarUsuario} from './store';
 import {useContext} from 'react'
 import {DataContext} from './DataContext'
 
+import {MyAccount} from "./MyAccount";
 
 var usuarios = [
-  {usuario: "julian@gmail.com",contraseña: "123", nombre: "Julian"},
-  { usuario: "pepe@gmail.com",contraseña: "234",nombre: "Pepe"},
-  { usuario: "tuti@gmail.com",contraseña: "juan", nombre: "Tuti"},
+  {usuario: "julian@gmail.com",contraseña: "123", nombre: "Julian" , apellido: "Alvarez", tel:"11 5145-5506"},
+  { usuario: "pepe@gmail.com",contraseña: "234",nombre: "Pepe", apellido: "Gomez", tel:"11 4408-2130"},
+  { usuario: "tuti@gmail.com",contraseña: "juan", nombre: "Tuti", apellido: "Sanblas", tel:"11 5145-5506"},
 ]
 
 
@@ -135,10 +136,6 @@ function LogIn(props) {
             {" "}
             Log in{" "}
           </div>
-               
-
-            
-    
         </div>
       </div>
     </div>

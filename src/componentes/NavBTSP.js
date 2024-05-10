@@ -26,7 +26,6 @@ function Navegador(props) {
               <Link className="link" to={item.url}> {item.texto }</Link>
 
             ))}
-            {props.generos}
            
           </Nav>
          

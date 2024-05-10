@@ -33,7 +33,7 @@ const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500'
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
     
 
-const generos = <CustomizedMenus/>
+
 
 const {porver,setPorver,addToWatched} = useContext(DataContext)
 
@@ -57,7 +57,7 @@ const removeFromPorver = (movie) =>{
 
   return (
     <>
-        <Navegador items= {elementosMenu}  generos = {generos}/>
+        <Navegador items= {elementosMenu} />
         
 
         <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>

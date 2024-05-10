@@ -11,6 +11,8 @@ import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios'
 import {DataContext} from './DataContext'
 import { Check } from "@mui/icons-material";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
 
@@ -33,7 +35,6 @@ const elementosMenu2 = [
 ];
 
 
-const generos = <CustomizedMenus/>
 /*------------------------------------------------------------------*/
 
 
@@ -62,6 +63,7 @@ const check = porver.every(item =>{
 
 if (check) {
   setPorver([...porver,movie])
+  alert("This movie has been added to your watchlist")
 }else{
   alert("This movie is already added")
 }
@@ -173,12 +175,13 @@ useEffect(() => {
 
   return (
     <>
-      <Navegador items={elementosMenu2} generos= {generos}  />
+      <Navegador items={elementosMenu2} />
 
       <div className="contenedor-titulo-peliculas">
         <h2 style={{fontSize: "36px"}}>Peliculas</h2>
         <div> 
-        <button onClick={()=> { toggleGenre(12)}}>Adventure  </button>
+        <button onClick={()=> { toggleGenre(12)}}
+          >Adventure  </button>
         <button onClick={()=> { toggleGenre(10752)}} >War  </button>
         <button onClick={()=> { toggleGenre(16)}}>Comedy  </button>
         <button onClick={()=> { toggleGenre(27)}} >Horror  </button>
@@ -198,8 +201,8 @@ useEffect(() => {
       
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
         <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
-        <button onClick={loadLessMovies}> Load less  </button> 
-        <button  onClick={loadMoreMovies} >  Load more </button>
+        <button onClick={loadLessMovies}> {<ArrowBackIosIcon/>} Previous </button> 
+        <button  onClick={loadMoreMovies} > Next{<ArrowForwardIosIcon/>} </button>
         </div>
 
         <Grid container spacing={0.1}>
