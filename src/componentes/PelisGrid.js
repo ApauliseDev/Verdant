@@ -36,11 +36,6 @@ const elementosMenu2 = [
 const generos = <CustomizedMenus/>
 /*------------------------------------------------------------------*/
 
-
-
-
-
-
 function PelisGrid() {
   const API_URL = 'https://api.themoviedb.org/3'
   const API_KEY = '0023db00b52250d5bed5debec71d21fb'
@@ -60,6 +55,7 @@ const check = porver.every(item =>{
 
 if (check) {
   setPorver([...porver,movie])
+  alert("This movie has been added to your watchlist")
 }else{
   alert("This movie is already added")
 }
