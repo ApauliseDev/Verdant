@@ -23,7 +23,7 @@ function HeaderPeliculas(props) {
           <Generos generosId={props.id}/>
           <h6> Overview</h6>
           <p>{props.sinopsis} </p>
-
+3
           <ElencoImagenes movieId={props.id} />
           
         </article>

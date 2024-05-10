@@ -9,6 +9,7 @@ import Pelislider from './Pelislider'
 import Navegador from './NavBTSP'
 import CustomizedMenus from './CustomizedMenus'
 import AccountMenu from './AccountMenu'
+import CatalogoSlider from './CatalogoSlider'
 import  { useSelector } from 'react-redux';
 
 const MovieSlide = ({ imageUrl, title }) => (
@@ -42,7 +43,8 @@ const objGeneros = <CustomizedMenus/>
     < >
     
     <Navegador items= {elementosMenu2}  generos = {objGeneros}  />
-    <SliderCatalogo/>
+    {/* <CatalogoSlider /> */}
+     <SliderCatalogo/> 
         <SImplePaper/>
         <Pelislider/>
 
