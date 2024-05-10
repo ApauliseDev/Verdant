@@ -12,11 +12,18 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import {useNavigate} from 'react-router-dom'
+import {useContext} from 'react'
+import {DataContext} from './DataContext'
+
 
 export default function AccountMenu(props) {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+
+  const {account,setAccount,logOut} = useContext(DataContext)
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -35,7 +42,7 @@ export default function AccountMenu(props) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 50, height: 50 }}>  {props.user} </Avatar>
+            <Avatar sx={{ width: 50, height: 50 }}>  {account.nombre} </Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -75,9 +82,6 @@ export default function AccountMenu(props) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
           <Avatar /> My account
         </MenuItem>
         <Divider />
@@ -88,6 +92,7 @@ export default function AccountMenu(props) {
           Settings
         </MenuItem>
         <MenuItem onClick= {()=>{
+          logOut()
           navigate('/')
 
         }}>

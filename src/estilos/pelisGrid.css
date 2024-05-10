@@ -85,6 +85,16 @@
 
 
 
+.load-buttons button{
+  background: linear-gradient(to right, #52A13B, #123D05); 
+  font-family: 'Cinzel Bold';
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 20px;
+
+
+}
+
 .img-grid{
   box-shadow: none !important;
   display: flex;

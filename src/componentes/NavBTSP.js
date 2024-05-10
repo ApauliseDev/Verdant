@@ -13,6 +13,8 @@ function Navegador(props) {
   const location = useLocation()
   const usuario = useSelector((state)=> state.usuario)
 
+
+
   return (
     <Navbar data-bs-theme="dark" collapseOnSelect expand="lg" fixed="top" className="fondoNav justify-content-between">
       <Container style={{paddingTop: "15px"}}>
@@ -28,7 +30,7 @@ function Navegador(props) {
            
           </Nav>
          
-          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />:  <AccountMenu user = {usuario}/>}
+          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />:  <AccountMenu/>}
      
         </Navbar.Collapse>
       </Container>

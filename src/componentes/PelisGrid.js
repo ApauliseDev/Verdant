@@ -111,6 +111,8 @@ if (check) {
   const [searchKey,setSearchKey] = useState('');
   const [movie,setMovie] = useState({title:"Loading Movies"});
 
+  const [page, setPage] = useState(1)
+
   
 
   const fechMovies = async(searchKey) =>{
@@ -120,6 +122,7 @@ if (check) {
     params:{
       api_key: API_KEY,
       query: searchKey,
+      page: page
     }
   })
 
@@ -127,6 +130,29 @@ if (check) {
   setMovielist(filteredResults)
   setMovie(filteredResults[0])
 }
+
+
+//Funcion cargas mas pelis
+const loadMoreMovies = () => {
+  setPage(page + 1); // Incrementar el número de página
+}
+
+const loadLessMovies = () => {
+
+  if(page !== 1){
+    setPage(page - 1); // Incrementar el número de página
+  }
+
+
+}
+
+
+useEffect( () =>{
+  fechMovies()
+
+
+
+}, [page]  )
 
 
 //funcion para buscar la pelicula
@@ -171,6 +197,11 @@ useEffect(() => {
         </form>
       
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
+        <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
+        <button onClick={loadLessMovies}> Load less  </button> 
+        <button  onClick={loadMoreMovies} >  Load more </button>
+        </div>
+
         <Grid container spacing={0.1}>
           {movielist.map((movie) => (
             <Grid xs={6} md={4} lg={3} xl={2.4}>

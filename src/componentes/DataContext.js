@@ -11,6 +11,21 @@ export const  DataProvider = (props) =>{
   const [porver, setPorver] = useState(localStorage.getItem('porver')? JSON.parse(localStorage.getItem('porver')) : [])
   const [vistas, setVistas] = useState(localStorage.getItem('porver')? JSON.parse(localStorage.getItem('porver')) : [])
 
+  //Log In
+
+  const [account,setAccount] = useState(localStorage.getItem('account')? JSON.parse(localStorage.getItem('account')) : {}  )
+
+
+const logOut = () => {
+  setAccount(null)
+}
+
+
+useEffect(()=> {
+  localStorage.setItem("account",JSON.stringify(account))
+
+}, [account])
+
 useEffect(()=>{
   localStorage.setItem("porver",JSON.stringify(porver))
 } ,[porver] )
@@ -34,7 +49,7 @@ const addToWatched = (movie) => {
 
   return (
     <div>
-    <DataContext.Provider value={{porver,setPorver,vistas,setVistas,addToWatched}}>
+    <DataContext.Provider value={{porver,setPorver,vistas,setVistas,addToWatched,account,setAccount,logOut}}>
     {props.children}
     
      </DataContext.Provider>
