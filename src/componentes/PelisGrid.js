@@ -36,6 +36,9 @@ const elementosMenu2 = [
 const generos = <CustomizedMenus/>
 /*------------------------------------------------------------------*/
 
+
+
+
 function PelisGrid() {
   const API_URL = 'https://api.themoviedb.org/3'
   const API_KEY = '0023db00b52250d5bed5debec71d21fb'
@@ -43,9 +46,13 @@ function PelisGrid() {
   const URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 
 
-//Agregar a WatchList
+  //Watchlist
+  const  {porver,setPorver} = useContext(DataContext)
 
-const  {porver,setPorver} = useContext(DataContext)
+
+  //Agregar a WatchList
+
+
 console.log(porver)
 
 const addToWatchList = (movie) => {
@@ -61,13 +68,51 @@ if (check) {
 }
 }
 
+  //Filtrar por genero
+  const [selectedGenres, setSelectedGenres] = useState([]);
+
+
+  const fetchMoviesByGenres = async () => {
+    try {
+      const { data: { results } } = await axios.get(`${API_URL}/discover/movie`, {
+        params: {
+          api_key: API_KEY,
+          with_genres: selectedGenres.join(',') // Convertir array de géneros en string separado por comas
+        }
+      });
+      setMovielist(results);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMoviesByGenres();
+  }, [selectedGenres]); // Volver a cargar las películas cuando cambian los géneros seleccionados
+
+  
+  const toggleGenre = (genreId) => {
+    // Verificar si el género ya está seleccionado
+    if (selectedGenres.includes(genreId)) {
+      // Si ya está seleccionado, quitarlo de la lista de géneros seleccionados
+      setSelectedGenres(selectedGenres.filter(id => id !== genreId));
+    } else {
+      // Si no está seleccionado, agregarlo a la lista de géneros seleccionados
+      setSelectedGenres([...selectedGenres, genreId]);
+    }
+  };
+
+
+
+
 // }
 
-//variables de estado
-
+//variables de estado 
   const [movielist, setMovielist] = useState([]);
   const [searchKey,setSearchKey] = useState('');
   const [movie,setMovie] = useState({title:"Loading Movies"});
+
+  const [page, setPage] = useState(1)
 
   
 
@@ -78,6 +123,7 @@ if (check) {
     params:{
       api_key: API_KEY,
       query: searchKey,
+      page: page
     }
   })
 
@@ -85,6 +131,29 @@ if (check) {
   setMovielist(filteredResults)
   setMovie(filteredResults[0])
 }
+
+
+//Funcion cargas mas pelis
+const loadMoreMovies = () => {
+  setPage(page + 1); // Incrementar el número de página
+}
+
+const loadLessMovies = () => {
+
+  if(page !== 1){
+    setPage(page - 1); // Incrementar el número de página
+  }
+
+
+}
+
+
+useEffect( () =>{
+  fechMovies()
+
+
+
+}, [page]  )
 
 
 //funcion para buscar la pelicula
@@ -101,18 +170,6 @@ useEffect(() => {
 
 
 
-  // const getMovie = () => {
-  //   fetch(
-  //     "https://api.themoviedb.org/3/discover/movie?api_key=0023db00b52250d5bed5debec71d21fb"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((json) => setMovielist(json.results));
-  // };
-
-  // useEffect(() => {
-  //   getMovie();
-  // }, []);
-
   console.log(movielist);
 
   return (
@@ -120,20 +177,32 @@ useEffect(() => {
       <Navegador items={elementosMenu2} generos= {generos}  />
 
       <div className="contenedor-titulo-peliculas">
-        <h2>Peliculas</h2>
+        <h2 style={{fontSize: "36px"}}>Peliculas</h2>
+        <div> 
+        <button onClick={()=> { toggleGenre(12)}}>Adventure  </button>
+        <button onClick={()=> { toggleGenre(10752)}} >War  </button>
+        <button onClick={()=> { toggleGenre(16)}}>Comedy  </button>
+        <button onClick={()=> { toggleGenre(27)}} >Horror  </button>
+        <button onClick={()=> { toggleGenre(10749)}} >Romance  </button>
+        </div>
         {/* buscador */}
       </div>
       <form style={{display:"flex", justifyContent:"center"}} onSubmit={searchMovies}> 
-        <input
+        <input 
             className="input-busqueda"
             type="text"
-            placeholder="Search a movie"
+            placeholder="Search a movie..."
             value={searchKey}
-            onChange={(e) => setSearchKey(e.target.value)}
-          />
+            onChange={(e) => setSearchKey(e.target.value)}>
+        </input>
         </form>
       
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
+        <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
+        <button onClick={loadLessMovies}> Load less  </button> 
+        <button  onClick={loadMoreMovies} >  Load more </button>
+        </div>
+
         <Grid container spacing={0.1}>
           {movielist.map((movie) => (
             <Grid xs={6} md={4} lg={3} xl={2.4}>

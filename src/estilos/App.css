@@ -1,11 +1,18 @@
-html {
-    position: relative;
-    min-height: 100%;
-  }
+*html{
+margin: 0;
 
+
+
+}
 .app{
     display: flex;
+    align-content: space-around;
     flex-direction: column;
-    align-content: space-between;
     background:  linear-gradient(to bottom,#000002,#122B0F, #3D9133);
+}
+
+
+Footer{
+  height: 1000px;
+
 }

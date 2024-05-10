@@ -9,13 +9,18 @@ import { ImOpt } from "react-icons/im";
 import LayoutCatalogo from './LayoutCatalogo'
 import { useDispatch } from 'react-redux';
 import {guardarUsuario} from './store'; 
+import {useContext} from 'react'
+import {DataContext} from './DataContext'
 
+import {MyAccount} from "./MyAccount";
 
-const usuarios = [
-  {usuario: "julian@gmail.com",contraseña: "123"},
-  { usuario: "pepe@gmail.com",contraseña: "234"},
-  { usuario: "tuti@gmail.com",contraseña: "juan"},
+var usuarios = [
+  {usuario: "julian@gmail.com",contraseña: "123", nombre: "Julian"},
+  { usuario: "pepe@gmail.com",contraseña: "234",nombre: "Pepe"},
+  { usuario: "tuti@gmail.com",contraseña: "juan", nombre: "Tuti"},
 ]
+
+
 
 
 function LogIn(props) {
@@ -26,6 +31,8 @@ function LogIn(props) {
   const [denegade,setDenegade] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const {account,setAccount} = useContext(DataContext)
 
 
   const handleSubmit = (event) => {
@@ -55,7 +62,7 @@ function LogIn(props) {
     setError("")
     setDenegade(false)
     console.log("¡LogIn exitoso");
-    dispatch(guardarUsuario(user[0].toUpperCase())); // Guarda datos en el store
+    setAccount(cuenta)
     navigate('/LayoutCatalogo')
 
   
@@ -129,10 +136,6 @@ function LogIn(props) {
             {" "}
             Log in{" "}
           </div>
-               
-
-            
-    
         </div>
       </div>
     </div>

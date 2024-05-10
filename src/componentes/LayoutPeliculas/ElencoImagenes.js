@@ -14,7 +14,8 @@ function ElencoImagenes({ movieId }) {
         const data = await response.json();
         
         // Filtrar solo los primeros 5 miembros del elenco
-        const primerosCinco = data.cast.slice(0, 5);
+        const filteredElenco = data.cast.filter(cast => cast.profile_path !== null);
+        const primerosCinco = filteredElenco.slice(0, 5);
 
         // Para cada miembro del elenco, obtener su imagen y nombre
         const promises = primerosCinco.map(async (actor) => {

@@ -23,54 +23,77 @@
     margin-left: 60px;
     color: #fff;
     font-size: 10px;
-    margin-top: 110px; 
+    margin-top: 150px; 
     display: flex;
     gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
 
 }
+
+
+
+.contenedor-titulo-peliculas div{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+
+
+.contenedor-titulo-peliculas button{
+  background:none;
+  border: solid 2px #5bd635;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 32px;
+  padding: 3px;
+  font-family: "Cinzel Semibold";
+  font-weight: 700;
+  color: antiquewhite;
+  transition:  0.3s ease ; /* Agregamos transición al cambio de fondo */
+}
+
 
 /* ----- BUSCADOR ----- */
 
 .input-busqueda {
-  height: 60px;
-  margin-left: 15px;
-  width: 95%;
-  padding: 10px;
+  height: 100px;
+  font-weight: 700;
+  width: 99%;
+  font-size: 20px;
   border: none;
-  
-  font-size: 15px;
+  margin-top: 20px;
+  font-size: 40px;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
   color: #5bd635; /* Color de las letras del placeholder */
   transition: border-color 0.3s ease; /* Transición para el borde */
-  box-shadow: 0 0 5px #5bd635; /* Sombra verde */
+  box-shadow: 2px 1px 2px 2px #5bd635; /* Sombra verde */
 }
 
 .input-busqueda:hover {
-  border: solid 2px #5bd635; /* Cambia el borde al enfocar el input */
+  border: solid 1px #5bd635; /* Cambia el borde al enfocar el input */
 }
 
 .input-busqueda:focus {
-  border: solid 2px #5bd635; /* Cambia el borde al enfocar el input */
+  border: solid 1px #5bd635; /* Cambia el borde al enfocar el input */
 }
 
-.boton-buscar {
-  padding: 10px 20px;
-  margin-left: 15px;
-  border-color: #5bd635;
-  border-radius: 5px;
-  font-size: 15px;
-  background-color: transparent;
-  color: white;
-  transition: background-color 0.3s ease-in-out; /* Transición para el color de fondo */
-}
 
-.boton-buscar:hover {
-  
-  color: black;
-  border-color: #5bd635;
-  background-color: #5bd635; /* Cambia el color de fondo al pasar el mouse */
-}
 
+
+.load-buttons button{
+  background: linear-gradient(to right, #52A13B, #123D05); 
+  font-family: 'Cinzel Bold';
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 20px;
+
+
+}
 
 .img-grid{
   box-shadow: none !important;
