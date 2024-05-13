@@ -24,11 +24,11 @@ function IndexUno() {
           EXPLORA UN MUNDO DE ENTRETENIMIENTO
         </h1> 
         <h1 className = "title"style={{ color: "#2DB11B" }}>SIN LÍMITES</h1>
-        <p className="texto">¡Únete hoy mismo a nuestra comunidad de amantes del cine! </p>
-        <p className="texto"> Regístrate ahora para calificar, reseñar, acceder a contenido exclusivo y mucho más. ¡No esperes más!</p>
+        <p className="texto">Join our community of movie lovers today!</p>
+        <p className="texto"> Sign up now to rate, review, access exclusive content and more. Do not wait more!</p>
         <div className="Botones-index">
-          <Link id="boton-link" to = "/LogIn"><Boton title='Unite Ahora' /> </Link> 
-          <Link id="boton-link" to = "/LogIn"><Boton title='Ya tengo  Verdant' /> </Link> 
+          <Link id="boton-link" to = "/LogIn"><Boton title='Join Now' /> </Link> 
+          <Link id="boton-link" to = "/LogIn"><Boton title='Already have verdant' /> </Link> 
         </div>
 
       </div>

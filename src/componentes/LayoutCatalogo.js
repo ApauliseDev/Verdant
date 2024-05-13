@@ -29,9 +29,9 @@ const usuario = useSelector((state)=> state.usuario)
 
 
 const elementosMenu2 = [
-  {url:'/LayoutCatalogo',texto:'Inicio' },
-  {url:'/PelisGrid',texto: 'Peliculas' },
-  {url:'/Favoritos', texto: 'Mis favoritos' },
+  {url:'/LayoutCatalogo',texto:'Home' },
+  {url:'/PelisGrid',texto: 'Movies' },
+  {url:'/Favoritos', texto: 'Lists' },
 ]
 
 

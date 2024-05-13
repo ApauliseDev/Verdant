@@ -16,7 +16,7 @@ margin-top: 120px;
 #slideSwip div{
     display: flex;
     align-self: flex-end;
-    background-color: rgba(0, 128, 0, 0.4); /* Ajustar el color y la opacidad */ 
+    background-color: rgba(0, 128, 0, 0.3); /* Ajustar el color y la opacidad */ 
     flex-direction: column;
 
 

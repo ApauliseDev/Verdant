@@ -59,7 +59,10 @@ const random = Math.random().toString(36).substring(2, 7);
           <SwiperSlide id="slideSwip">
           <img id="slideimg" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}?v=${random}`} alt= {movie.original_title}/>
           <div style={{width:"98%",height:"250px" , position:"absolute"}} > 
-          <h6 style={{color:"antiquewhite", fontSize:"30px", fontFamily:"Cinzel Bold", padding:"12px 0px 0px 12px" }}> {movie.title}    </h6>
+          <article style={{display:"flex", width:"100%", background:"inheredit", flexDirection: "row" }}> 
+            <h6 style={{color:"antiquewhite", fontSize:"30px", fontFamily:"Cinzel Bold", padding:"12px 0px 0px 12px" }}> {movie.title}</h6>
+            <p>{movie.vote_average}/10 </p>
+          </article>
           <p style={{color:"antiquewhite", padding:"10px",fontFamily:"Cinzel", fontWeight:"700"}}> {movie.overview} </p>
           
           </div>

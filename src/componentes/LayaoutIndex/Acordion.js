@@ -44,19 +44,19 @@ function Acordion() {
   
       <Accordion className="accordionWidth" >
       <div id="FAQ">
-        <h2 > Preguntas Frecuentes</h2>
+        <h2 > FAQ</h2>
       </div>
         <Card id="border-c">
           <CustomToggle eventKey="0">
             <Card.Header id="card-head" style={{ backgroundColor: "#24451D", color: "#fff" }}>
-              ¿Es necesario registrarse para utilizar Verdant?
+            Do I need to register to use Verdant?
             </Card.Header>
           </CustomToggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body id="cuerpo" >
-              Sí, para acceder y disfrutar del contenido disponible en Verdant,
-              así como para dejar reseñas y comentarios sobre películas y
-              series, es necesario registrarse en la plataforma. 
+            Yes, to access and enjoy the content available on Verdant,
+            as well as to leave reviews and comments on movies and
+            series, it is necessary to register on the platform.. 
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -64,13 +64,13 @@ function Acordion() {
         <Card id="border-c">
           <CustomToggle eventKey="1">
             <Card.Header id="card-head" style={{ backgroundColor: "#24451D", color: "#fff" }}>
-              ¿Cómo puedo buscar una película o serie específica?
+            How can I search for a specific movie?
             </Card.Header>
           </CustomToggle>
           <Accordion.Collapse eventKey="1">
             <Card.Body id="cuerpo"  >
-              Para acceder al contenido de películas y series específicas en
-              Verdant, es necesario iniciar sesión en tu cuenta. 
+            To access content from specific movies and series on
+            Verdant, you need to log in to your account. 
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -78,7 +78,7 @@ function Acordion() {
         <Card id="border-c">
           <CustomToggle eventKey="3">
             <Card.Header id="card-head" >
-              ¿Cuál es la frecuencia de actualización del contenido?
+              What is the content update frequency?
             </Card.Header>
           </CustomToggle>
           <Accordion.Collapse eventKey="3">
@@ -93,15 +93,14 @@ function Acordion() {
         <Card id="border-c">
           <CustomToggle eventKey="4">
             <Card.Header id="card-head" >
-              ¿Hay algún requisito técnico específico para utilizar Verdant en
-              diferentes dispositivos?
+            Are there any specific technical requirements to use Verdant on
+            different devices?
             </Card.Header>
           </CustomToggle>
           <Accordion.Collapse eventKey="4">
             <Card.Body id="cuerpo" >
-              Puedes disfrutar de Verdant desde tu dispositivo favorito, ya sea
-              una computadora de escritorio, una laptop, una tableta o un
-              teléfono. 
+            You can enjoy Verdant from your favorite device, whether
+            a desktop computer, laptop, tablet or phone.
             </Card.Body>
           </Accordion.Collapse>
         </Card>

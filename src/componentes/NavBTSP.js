@@ -29,7 +29,7 @@ function Navegador(props) {
            
           </Nav>
          
-          {location.pathname === '/'?<Boton className="boton-regist"  title="Registrarse" />:  <AccountMenu/>}
+          {location.pathname === '/'?<Boton className="boton-regist"  title="Register" />:  <AccountMenu/>}
      
         </Navbar.Collapse>
       </Container>

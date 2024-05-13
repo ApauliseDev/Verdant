@@ -45,7 +45,7 @@
 
 
 .contenedor-titulo-peliculas button{
-  background:none;
+  background:transparent;
   border: solid 2px #5bd635;
   width: 200px;
   font-size: 20px;
@@ -57,6 +57,21 @@
   transition:  0.3s ease ; /* Agregamos transición al cambio de fondo */
 }
 
+
+.contenedor-titulo-peliculas button::before{
+  background: transparent;
+
+
+}
+.contenedor-titulo-peliculas button::after{
+  background-color: #5bd635;
+
+
+}
+
+.contenedor-titulo-peliculas button:hover{
+  background-color: #5bd635;
+}
 
 /* ----- BUSCADOR ----- */
 
@@ -90,9 +105,11 @@
   font-family: 'Cinzel Bold';
   font-size: 15px;
   padding: 6px;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 16px;
   border: none;
+  color: antiquewhite;
+
 
 
 }

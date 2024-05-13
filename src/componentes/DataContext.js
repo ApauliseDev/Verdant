@@ -39,7 +39,16 @@ const addToWatched = (movie) => {
     return item.id !== movie.id
   })
   if(check) {
+    const updater = [...porver]
+    updater.forEach((item,index)=>{
+      if(item.id === movie.id){
+        updater.splice(index,1)
+      }
+      setPorver(updater)
+    })
     setVistas([...vistas,movie ] )
+    
+    
   }else{
     alert("you already added this movie to Watched List")
   }
@@ -47,9 +56,21 @@ const addToWatched = (movie) => {
 }
 
 
+const removeFromVistas = (movie) =>{
+  const updater = [...vistas]
+  updater.forEach((item,index)=>{
+    if(item.id === movie.id){
+      updater.splice(index,1)
+    }
+    setVistas(updater)
+  })
+
+}
+
+
   return (
     <div>
-    <DataContext.Provider value={{porver,setPorver,vistas,setVistas,addToWatched,account,setAccount,logOut}}>
+    <DataContext.Provider value={{porver,setPorver,vistas,setVistas,addToWatched,account,setAccount,logOut,removeFromVistas}}>
     {props.children}
     
      </DataContext.Provider>

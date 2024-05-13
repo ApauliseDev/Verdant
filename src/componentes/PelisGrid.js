@@ -31,7 +31,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const elementosMenu2 = [
   { url: "/LayoutCatalogo", texto: "Home" },
   { url: "/PelisGrid", texto: "Movies" },
-  { url: "/Favoritos", texto: "WatchList" },
+  { url: "/Favoritos", texto: "Lists" },
 ];
 
 
@@ -63,7 +63,7 @@ const check = porver.every(item =>{
 
 if (check) {
   setPorver([...porver,movie])
-  alert("This movie has been added to your watchlist")
+  alert("Great choice! :)")
 }else{
   alert("This movie is already added")
 }
@@ -136,12 +136,14 @@ if (check) {
 
 //Funcion cargas mas pelis
 const loadMoreMovies = () => {
+  window.scrollTo(0, 0); 
   setPage(page + 1); // Incrementar el número de página
 }
 
 const loadLessMovies = () => {
 
   if(page !== 1){
+    window.scrollTo(0, 0); 
     setPage(page - 1); // Incrementar el número de página
   }
 
@@ -180,8 +182,9 @@ useEffect(() => {
       <div className="contenedor-titulo-peliculas">
         <h2 style={{fontSize: "36px"}}>Peliculas</h2>
         <div> 
-        <button onClick={()=> { toggleGenre(12)}}
-          >Adventure  </button>
+        <button
+          activeclassName = "active"
+         onClick={()=> { toggleGenre(12)}}>Adventure  </button>
         <button onClick={()=> { toggleGenre(10752)}} >War  </button>
         <button onClick={()=> { toggleGenre(16)}}>Comedy  </button>
         <button onClick={()=> { toggleGenre(27)}} >Horror  </button>
@@ -236,6 +239,11 @@ useEffect(() => {
             </Grid>
           ))}
         </Grid>
+        <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
+        <button onClick={loadLessMovies}> {<ArrowBackIosIcon/>} Previous </button> 
+        <button  onClick={loadMoreMovies} > Next{<ArrowForwardIosIcon/>} </button>
+        </div>
+        
       </Box>
     </>
   );

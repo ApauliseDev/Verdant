@@ -86,7 +86,10 @@ function SimplePaper() {
         }}
       >
         {Object.entries(genreMovies).map(([genre, movie]) => (
-          <Link className="link-papers" to={`/PelisGeneros/${getGenreId(genre)}`} key={genre}>
+          <Link 
+
+          state={{ genreID: genre }}
+          className="link-papers" to={`/PelisGrid`} key={genre}>
             <Paper
               id="Paper-id"
               elevation={3}

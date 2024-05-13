@@ -23,17 +23,17 @@ function Main() {
         <li><img  src={process.env.PUBLIC_URL + '/imagenes/CivilWar.jpg'} alt="Imagen 5" /></li>
         <li><img  src={process.env.PUBLIC_URL + '/imagenes/KungFu.jpg'} alt="Imagen 5" /></li>
       </ul>
-      <h2 className="intermedio"> En Verdant podras...</h2>
+      <h2 className="intermedio"> In verdant...</h2>
       </div>
  
       <div className="card-container">
         <div className="card">
         <GroupsIcon fontSize="large"></GroupsIcon>
-          <p>Mantente al tanto de lo que opina la comunidad sobre cualquier serie o pelicula que te imagines.</p>
+          <p>Stay up to date with what the community thinks about any series or movie you can imagine.</p>
         </div>
         <div className="card">
         <FavoriteIcon fontSize="large"></FavoriteIcon>
-          <p>Demuestrale tu cariño al elenco a traves de tus reseñas y calificaciones.</p>
+          <p>Show your love to the cast through your reviews and ratings.</p>
         </div>
         <div className="card">
         <SpeakerNotesIcon fontSize="large"></SpeakerNotesIcon>
@@ -43,15 +43,15 @@ function Main() {
      <div className="card-container">
         <div className="card">
         <StarIcon fontSize="large"></StarIcon>
-          <p>Califica cada pelicula con una escala de cinco estrellas para guardar y compartir tu reaccion.</p>
+          <p>Interact and share your opinion with other members of the community</p>
         </div>
         <div className="card">
         <CalendarMonthIcon fontSize="large"></CalendarMonthIcon>
-          <p>No te pierdas los utlimos lanzamientos y se el primero en dejarnos saber tu opinion</p>
+          <p>Don't miss the latest releases and be the first to let us know your opinion</p>
         </div>
         <div className="card">
         <PlaylistAddIcon fontSize="large"></PlaylistAddIcon>
-          <p>Crea una lista para agregar todas las peliculas y series que planeas ver</p>
+          <p>Create a list to add all the movies and series you plan to watch</p>
      </div>
       </div>
       <div className="carts" >
