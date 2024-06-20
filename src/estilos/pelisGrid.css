@@ -28,7 +28,6 @@
     gap: 20px;
     justify-content: space-around;
     flex-wrap: wrap;
-    
 
 }
 
@@ -82,6 +81,8 @@
   font-size: 20px;
   border: none;
   margin-top: 20px;
+  padding: 20px;
+  margin: 4%;
   font-size: 40px;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
   color: #5bd635; /* Color de las letras del placeholder */

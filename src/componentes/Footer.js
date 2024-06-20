@@ -8,12 +8,12 @@ function Footer() {
     <div className='contenedor'>
         <h1 className='titulo' > VerdanT </h1>
         <div className='recursos' >
-          <p className='recursos_items'>Términos de uso</p>
-          <p className='recursos_items'>Politica de privacidad</p >
-          <p className='recursos_items'>Dispositivos compatibles</p >
-          <p className='recursos_items'>Ayuda</p>
+          <p className='recursos_items'>Terms of use</p>
+          <p className='recursos_items'>Privacy Policy</p>
+          <p className='recursos_items'>Compatible devices</p>
+          <p className='recursos_items'>Help</p>
         </div>
-        <h4 className='copyright'> © 2024 VerdanT . Todos los derechos reservados.  </h4>
+        <h4 className='copyright'>© 2024 VerdanT. All rights reserved.</h4>
     </div>
 
       

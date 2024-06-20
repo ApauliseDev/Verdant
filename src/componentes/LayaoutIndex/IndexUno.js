@@ -21,9 +21,9 @@ function IndexUno() {
     <Navegador items= {elementosMenu} />
       <div className="encabezado">
         <h1 className="title" >
-          EXPLORA UN MUNDO DE ENTRETENIMIENTO
+        EXPLORE A WORLD OF ENTERTAINMENT
         </h1> 
-        <h1 className = "title"style={{ color: "#2DB11B" }}>SIN LÍMITES</h1>
+        <h1 className = "title"style={{ color: "#2DB11B" }}>WITHOUT LIMITS!</h1>
         <p className="texto">Join our community of movie lovers today!</p>
         <p className="texto"> Sign up now to rate, review, access exclusive content and more. Do not wait more!</p>
         <div className="Botones-index">

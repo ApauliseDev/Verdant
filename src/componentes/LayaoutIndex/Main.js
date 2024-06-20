@@ -7,9 +7,6 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import "../../estilos/main.css";
 
-import { ImAirplane } from "react-icons/im";
-
-
 function Main() {
 
   return (
@@ -37,7 +34,7 @@ function Main() {
         </div>
         <div className="card">
         <SpeakerNotesIcon fontSize="large"></SpeakerNotesIcon>
-          <p>Interactua y comparte tu opinion con los demas miembros de la comunidad</p>
+          <p>Interact and share your opinion with other members of the community</p>
         </div>
      </div>
      <div className="card-container">

@@ -8,13 +8,10 @@ import "../estilos/pelisGrid.css";
 import CustomizedMenus from "./CustomizedMenus";
 import { Link } from "react-router-dom";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import axios from 'axios'
-import {DataContext} from './DataContext'
-import { Check } from "@mui/icons-material";
+import axios from 'axios';
+import { DataContext } from './DataContext';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
-
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -24,9 +21,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   objectFit: "cover",
 }));
-/*------------------------------------------------------------------*/
-
-
 
 const elementosMenu2 = [
   { url: "/LayoutCatalogo", texto: "Home" },
@@ -34,52 +28,35 @@ const elementosMenu2 = [
   { url: "/Favoritos", texto: "Lists" },
 ];
 
-
-/*------------------------------------------------------------------*/
-
-
-
-
 function PelisGrid() {
-  const API_URL = 'https://api.themoviedb.org/3'
-  const API_KEY = '0023db00b52250d5bed5debec71d21fb'
-  const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500'
-  const URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
+  const API_URL = 'https://api.themoviedb.org/3';
+  const API_KEY = '0023db00b52250d5bed5debec71d21fb';
+  const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
+  const URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
+  // Watchlist
+  const { porver, setPorver } = useContext(DataContext);
 
-  //Watchlist
-  const  {porver,setPorver} = useContext(DataContext)
+  const addToWatchList = (movie) => {
+    const check = porver.every(item => item.id !== movie.id);
+    if (check) {
+      setPorver([...porver, movie]);
+      alert("Great choice! :)");
+    } else {
+      alert("This movie is already added");
+    }
+  };
 
-
-  //Agregar a WatchList
-
-
-console.log(porver)
-
-const addToWatchList = (movie) => {
-const check = porver.every(item =>{
-  return item.id !== movie.id
-})
-
-if (check) {
-  setPorver([...porver,movie])
-  alert("Great choice! :)")
-}else{
-  alert("This movie is already added")
-}
-}
-
-  //Filtrar por genero
+  // Filtrar por género
   const [selectedGenres, setSelectedGenres] = useState([]);
-
 
   const fetchMoviesByGenres = async () => {
     try {
       const { data: { results } } = await axios.get(`${API_URL}/discover/movie`, {
         params: {
           api_key: API_KEY,
-          with_genres: selectedGenres.join(',') // Convertir array de géneros en string separado por comas
-        }
+          with_genres: selectedGenres.join(','),
+        },
       });
       setMovielist(results);
     } catch (error) {
@@ -89,161 +66,151 @@ if (check) {
 
   useEffect(() => {
     fetchMoviesByGenres();
-  }, [selectedGenres]); // Volver a cargar las películas cuando cambian los géneros seleccionados
+  }, [selectedGenres]);
 
-  
   const toggleGenre = (genreId) => {
-    // Verificar si el género ya está seleccionado
     if (selectedGenres.includes(genreId)) {
-      // Si ya está seleccionado, quitarlo de la lista de géneros seleccionados
       setSelectedGenres(selectedGenres.filter(id => id !== genreId));
     } else {
-      // Si no está seleccionado, agregarlo a la lista de géneros seleccionados
       setSelectedGenres([...selectedGenres, genreId]);
     }
   };
 
-
-
-
-// }
-
-//variables de estado 
+  // Variables de estado 
   const [movielist, setMovielist] = useState([]);
-  const [searchKey,setSearchKey] = useState('');
-  const [movie,setMovie] = useState({title:"Loading Movies"});
+  const [searchKey, setSearchKey] = useState('');
+  const [movie, setMovie] = useState({ title: "Loading Movies" });
+  const [page, setPage] = useState(1);
 
-  const [page, setPage] = useState(1)
+  const fetchTrendingMovies = async () => {
+    try {
+      const { data: { results } } = await axios.get(`${API_URL}/trending/all/week`, {
+        params: {
+          api_key: API_KEY,
+          page: page,
+        },
+      });
 
-  
-
-  const fechMovies = async(searchKey) =>{
-    const type = searchKey ? "search": "discover"
-    const {data: {results},
-  } = await axios.get(`${API_URL}/${type}/movie`,{
-    params:{
-      api_key: API_KEY,
-      query: searchKey,
-      page: page
+      const filteredResults = results.filter(result => result.poster_path !== null);
+      setMovielist(filteredResults);
+      setMovie(filteredResults[0]);
+    } catch (error) {
+      console.error("Error fetching trending movies:", error);
     }
-  })
+  };
 
-  const filteredResults = results.filter(movie => movie.poster_path !== null);
-  setMovielist(filteredResults)
-  setMovie(filteredResults[0])
-}
+  const fetchSearchMovies = async (searchKey) => {
+    try {
+      const { data: { results } } = await axios.get(`${API_URL}/search/multi`, {
+        params: {
+          api_key: API_KEY,
+          query: searchKey,
+          page: page,
+        },
+      });
 
+      const filteredResults = results.filter(result => 
+        (result.media_type === "movie" && result.poster_path !== null) || 
+        (result.media_type === "person" && result.profile_path !== null)
+      );
+      setMovielist(filteredResults);
+      setMovie(filteredResults[0]);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
 
-//Funcion cargas mas pelis
-const loadMoreMovies = () => {
-  window.scrollTo(0, 0); 
-  setPage(page + 1); // Incrementar el número de página
-}
+  const loadMoreMovies = () => {
+    window.scrollTo(0, 0);
+    setPage(page + 1);
+  };
 
-const loadLessMovies = () => {
+  const loadLessMovies = () => {
+    if (page !== 1) {
+      window.scrollTo(0, 0);
+      setPage(page - 1);
+    }
+  };
 
-  if(page !== 1){
-    window.scrollTo(0, 0); 
-    setPage(page - 1); // Incrementar el número de página
-  }
+  useEffect(() => {
+    if (searchKey) {
+      fetchSearchMovies(searchKey);
+    } else {
+      fetchTrendingMovies();
+    }
+  }, [page, searchKey]);
 
-
-}
-
-
-useEffect( () =>{
-  fechMovies()
-
-
-
-}, [page]  )
-
-
-//funcion para buscar la pelicula
-const searchMovies = (e) => {
-e.preventDefault();
-fechMovies(searchKey)
-}
-
-
-useEffect(() => {
-  // Llamar a fetchMovies con el valor actual de searchKey
-  fechMovies(searchKey);
-}, [searchKey])
-
-
-
-  console.log(movielist);
+  const searchMovies = (e) => {
+    e.preventDefault();
+    setPage(1);
+    fetchSearchMovies(searchKey);
+  };
 
   return (
     <>
       <Navegador items={elementosMenu2} />
 
       <div className="contenedor-titulo-peliculas">
-        <h2 style={{fontSize: "36px"}}>Peliculas</h2>
-        <div> 
-        <button
-          activeclassName = "active"
-         onClick={()=> { toggleGenre(12)}}>Adventure  </button>
-        <button onClick={()=> { toggleGenre(10752)}} >War  </button>
-        <button onClick={()=> { toggleGenre(16)}}>Comedy  </button>
-        <button onClick={()=> { toggleGenre(27)}} >Horror  </button>
-        <button onClick={()=> { toggleGenre(10749)}} >Romance  </button>
+        <h2 style={{ fontSize: "36px" }}>Peliculas</h2>
+        <div>
+          <button onClick={() => { toggleGenre(12) }}>Adventure</button>
+          <button onClick={() => { toggleGenre(10752) }}>War</button>
+          <button onClick={() => { toggleGenre(16) }}>Comedy</button>
+          <button onClick={() => { toggleGenre(27) }}>Horror</button>
+          <button onClick={() => { toggleGenre(10749) }}>Romance</button>
         </div>
-        {/* buscador */}
       </div>
-      <form style={{display:"flex", justifyContent:"center"}} onSubmit={searchMovies}> 
-        <input 
-            className="input-busqueda"
-            type="text"
-            placeholder="Search a movie..."
-            value={searchKey}
-            onChange={(e) => setSearchKey(e.target.value)}>
-        </input>
-        </form>
-      
+      <form style={{ display: "flex", justifyContent: "center" }} onSubmit={searchMovies}>
+        <input
+          className="input-busqueda"
+          type="text"
+          placeholder="Search a movie..."
+          value={searchKey}
+          onChange={(e) => setSearchKey(e.target.value)}
+        />
+      </form>
+
       <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
-        <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
-        <button onClick={loadLessMovies}> {<ArrowBackIosIcon/>} Previous </button> 
-        <button  onClick={loadMoreMovies} > Next{<ArrowForwardIosIcon/>} </button>
+        <div className="load-buttons" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
+          <button onClick={loadLessMovies}>{<ArrowBackIosIcon />} Previous</button>
+          <button onClick={loadMoreMovies}>Next {<ArrowForwardIosIcon />}</button>
         </div>
 
         <Grid container spacing={0.1}>
-          {movielist.map((movie) => (
-            <Grid xs={6} md={4} lg={3} xl={2.4}>
+          {movielist.map((item) => (
+            <Grid key={item.id} xs={6} md={4} lg={3} xl={2.4}>
               <Item className="img-grid">
-                <Link
-                  key={movie.id}
-                  to={`/LayoutPeliculas/${movie.original_title}`}
-                  state={{ movieDetails: movie }}
-                >
-                  <img
-                    src={`${URL_IMAGE + movie.poster_path}`}
-                    alt={movie.name}
-                    style={{
-                      borderRadius: "16px",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </Link>
-                <button 
-                id="boton-poster"
-                 onClick={()=>{
-                  addToWatchList(movie)
-                 }}
-                >{<PlaylistAddIcon/>} </button>
-                
-                
+                {item.media_type === "person" ? (
+                  <Link to={`/PersonDetails/${item.name}`} state={{ personDetails: item }}>
+                    <img
+                      src={`${URL_IMAGE + item.profile_path}`}
+                      alt={item.name}
+                      style={{ borderRadius: "16px", width: "100%", height: "100%" }}
+                    />
+                  </Link>
+                ) : (
+                  <Link to={`/LayoutPeliculas/${item.original_title}`} state={{ movieDetails: item }}>
+                    <img
+                      src={`${URL_IMAGE + item.poster_path}`}
+                      alt={item.title}
+                      style={{ borderRadius: "16px", width: "100%", height: "100%" }}
+                    />
+                  </Link>
+                )}
+                {item.media_type === "movie" && (
+                  <button
+                    id="boton-poster"
+                    onClick={() => { addToWatchList(item) }}
+                  >{<PlaylistAddIcon />}</button>
+                )}
               </Item>
             </Grid>
           ))}
         </Grid>
-        <div className="load-buttons" style={{width:"100%", display:"flex", justifyContent:"space-between"}}> 
-        <button onClick={loadLessMovies}> {<ArrowBackIosIcon/>} Previous </button> 
-        <button  onClick={loadMoreMovies} > Next{<ArrowForwardIosIcon/>} </button>
+        <div className="load-buttons" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
+          <button onClick={loadLessMovies}>{<ArrowBackIosIcon />} Previous</button>
+          <button onClick={loadMoreMovies}>Next {<ArrowForwardIosIcon />}</button>
         </div>
-        
       </Box>
     </>
   );
