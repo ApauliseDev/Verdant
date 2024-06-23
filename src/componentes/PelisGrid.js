@@ -68,13 +68,17 @@ function PelisGrid() {
     fetchMoviesByGenres();
   }, [selectedGenres]);
 
+  const [activeGenres, setActiveGenres] = useState([]);
+
   const toggleGenre = (genreId) => {
     if (selectedGenres.includes(genreId)) {
       setSelectedGenres(selectedGenres.filter(id => id !== genreId));
+      setActiveGenres(activeGenres.filter(id => id !== genreId));
     } else {
       setSelectedGenres([...selectedGenres, genreId]);
+      setActiveGenres([...activeGenres, genreId]);
     }
-  };
+  }
 
   // Variables de estado 
   const [movielist, setMovielist] = useState([]);
@@ -109,8 +113,8 @@ function PelisGrid() {
         },
       });
 
-      const filteredResults = results.filter(result => 
-        (result.media_type === "movie" && result.poster_path !== null) || 
+      const filteredResults = results.filter(result =>
+        (result.media_type === "movie" && result.poster_path !== null) ||
         (result.media_type === "person" && result.profile_path !== null)
       );
       setMovielist(filteredResults);
@@ -153,12 +157,43 @@ function PelisGrid() {
       <div className="contenedor-titulo-peliculas">
         <h2 style={{ fontSize: "36px" }}>Peliculas</h2>
         <div>
-          <button onClick={() => { toggleGenre(12) }}>Adventure</button>
-          <button onClick={() => { toggleGenre(10752) }}>War</button>
-          <button onClick={() => { toggleGenre(16) }}>Comedy</button>
-          <button onClick={() => { toggleGenre(27) }}>Horror</button>
-          <button onClick={() => { toggleGenre(10749) }}>Romance</button>
+          <button
+            id="BotonesGeneros"
+            onClick={() => { toggleGenre(12) }}
+            className={activeGenres.includes(12) ? 'active' : ''}
+          >
+            Adventure
+          </button>
+          <button
+            id="BotonesGeneros"
+            onClick={() => { toggleGenre(10752) }}
+            className={activeGenres.includes(10752) ? 'active' : ''}
+          >
+            War
+          </button>
+          <button
+            id="BotonesGeneros"
+            onClick={() => { toggleGenre(16) }}
+            className={activeGenres.includes(16) ? 'active' : ''}
+          >
+            Comedy
+          </button>
+          <button
+            id="BotonesGeneros"
+            onClick={() => { toggleGenre(27) }}
+            className={activeGenres.includes(27) ? 'active' : ''}
+          >
+            Horror
+          </button>
+          <button
+            id="BotonesGeneros"
+            onClick={() => { toggleGenre(10749) }}
+            className={activeGenres.includes(10749) ? 'active' : ''}
+          >
+            Romance
+          </button>
         </div>
+
       </div>
       <form style={{ display: "flex", justifyContent: "center" }} onSubmit={searchMovies}>
         <input
