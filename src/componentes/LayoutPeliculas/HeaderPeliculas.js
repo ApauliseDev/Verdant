@@ -1,6 +1,6 @@
 import React from "react";
 import "../../estilos/headerPeliculas.css";
-import RatingStars from "./RatingStars";
+//import RatingStars from "./RatingStars";
 import ElencoImagenes from "./ElencoImagenes"
 import Generos from "./Generos";
 
@@ -16,7 +16,9 @@ function HeaderPeliculas(props) {
       <section className="header-content-box">
         <div className="cartelera-img">
           <img src={`https://image.tmdb.org/t/p/w500${props.poster}`} alt={props.title} />
-          <RatingStars />
+          <div className="rating">
+            <p>Rating: {props.rating}/10</p>
+          </div>
         </div>
         <article className="movie-info">
           <h2 style={{margin: "20px"}}> {props.title} </h2>

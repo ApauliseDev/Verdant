@@ -23,6 +23,7 @@ const [movieDetails, setMovieDetails] = useState({});
   useEffect(() => {
     if (location.state?.movieDetails) {
       setMovieDetails(location.state.movieDetails);
+      console.log(location.state.movieDetails);
     }
   }, [location]);
 
@@ -40,6 +41,7 @@ const [movieDetails, setMovieDetails] = useState({});
       title = {movieDetails.title}
       sinopsis = {movieDetails.overview}
       id={movieDetails.id}
+      rating={movieDetails.vote_average}
     />
     <Video id={movieDetails.id} title={movieDetails.title} url={movieDetails.url}/>
     
