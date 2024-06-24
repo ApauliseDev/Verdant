@@ -90,6 +90,20 @@
   box-shadow: 2px 1px 2px 2px #5bd635; /* Sombra verde */
 }
 
+@media screen and (max-width: 1200px) {
+  .input-busqueda {
+    font-size: 30px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .input-busqueda {
+    font-size: 25px;
+    height: 60px;
+  }
+}
+
 .input-busqueda:hover {
   border: solid 1px #5bd635; /* Cambia el borde al enfocar el input */
 }
@@ -99,8 +113,8 @@
 }
 
 #BotonesGeneros.active {
-  background-color: #5bd635; /* Cambia el borde al enfocar el input */
-};
+  background-color: #5bd635;
+}
 
 
 .load-buttons button{
@@ -112,6 +126,8 @@
   border-radius: 16px;
   border: none;
   color: antiquewhite;
+
+
 
 }
 

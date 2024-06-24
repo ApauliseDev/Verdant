@@ -49,6 +49,7 @@ function PelisGrid() {
 
   // Filtrar por género
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [activeGenres, setActiveGenres] = useState([]);
 
   const fetchMoviesByGenres = async () => {
     try {
@@ -58,7 +59,9 @@ function PelisGrid() {
           with_genres: selectedGenres.join(','),
         },
       });
-      setMovielist(results);
+      // Asegurarte de que media_type sea "movie"
+      const moviesWithMediaType = results.map(movie => ({ ...movie, media_type: "movie" }));
+      setMovielist(moviesWithMediaType);
     } catch (error) {
       console.error("Error fetching movies:", error);
     }
@@ -68,8 +71,6 @@ function PelisGrid() {
     fetchMoviesByGenres();
   }, [selectedGenres]);
 
-  const [activeGenres, setActiveGenres] = useState([]);
-
   const toggleGenre = (genreId) => {
     if (selectedGenres.includes(genreId)) {
       setSelectedGenres(selectedGenres.filter(id => id !== genreId));
@@ -78,7 +79,7 @@ function PelisGrid() {
       setSelectedGenres([...selectedGenres, genreId]);
       setActiveGenres([...activeGenres, genreId]);
     }
-  }
+  };
 
   // Variables de estado 
   const [movielist, setMovielist] = useState([]);
@@ -88,7 +89,7 @@ function PelisGrid() {
 
   const fetchTrendingMovies = async () => {
     try {
-      const { data: { results } } = await axios.get(`${API_URL}/trending/all/week`, {
+      const { data: { results } } = await axios.get(`${API_URL}/trending/movie/week`, {
         params: {
           api_key: API_KEY,
           page: page,
@@ -105,7 +106,7 @@ function PelisGrid() {
 
   const fetchSearchMovies = async (searchKey) => {
     try {
-      const { data: { results } } = await axios.get(`${API_URL}/search/multi`, {
+      const { data: { results } } = await axios.get(`${API_URL}/search/movie`, {
         params: {
           api_key: API_KEY,
           query: searchKey,
@@ -113,10 +114,7 @@ function PelisGrid() {
         },
       });
 
-      const filteredResults = results.filter(result =>
-        (result.media_type === "movie" && result.poster_path !== null) ||
-        (result.media_type === "person" && result.profile_path !== null)
-      );
+      const filteredResults = results.filter(result => result.poster_path !== null);
       setMovielist(filteredResults);
       setMovie(filteredResults[0]);
     } catch (error) {
@@ -193,9 +191,8 @@ function PelisGrid() {
             Romance
           </button>
         </div>
-
       </div>
-      <form style={{ display: "flex", justifyContent: "center" }} onSubmit={searchMovies}>
+      <form style={{ display: "flex", justifyContent: "center", margin: 15 }} onSubmit={searchMovies}>
         <input
           className="input-busqueda"
           type="text"
@@ -205,7 +202,7 @@ function PelisGrid() {
         />
       </form>
 
-      <Box sx={{ flexGrow: 1, marginTop: 20, paddingLeft: 6, paddingRight: 6 }}>
+      <Box sx={{ flexGrow: 1, paddingLeft: 6, paddingRight: 6 }}>
         <div className="load-buttons" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
           <button onClick={loadLessMovies}>{<ArrowBackIosIcon />} Previous</button>
           <button onClick={loadMoreMovies}>Next {<ArrowForwardIosIcon />}</button>

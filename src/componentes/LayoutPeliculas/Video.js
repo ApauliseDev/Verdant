@@ -28,24 +28,22 @@ function Video(props) {
 
   // Si no hay videoKey, muestra un mensaje de carga o un mensaje de que no hay videos disponibles
   if (!videoKey) {
-    return <p>No hay videos disponibles</p>;
+    return <p className="video-message">No hay videos disponibles</p>;
   }
 
   // URL del video en YouTube
   const videoUrl = `https://www.youtube.com/embed/${videoKey}`;
 
   return (
-      <div className="video-item">
-        {/* Inserta el iframe del video */}
-        <iframe
-            title={props.title}
-            src={videoUrl}
-            width="80%"
-            height="700"
-            frameBorder="0"
-            allowFullScreen
-        />
-      </div>
+    <div className="video-container">
+      <iframe
+        title={props.title}
+        src={videoUrl}
+        frameBorder="0"
+        allowFullScreen
+        className="video-iframe"
+      />
+  </div>
   );
 }
 
