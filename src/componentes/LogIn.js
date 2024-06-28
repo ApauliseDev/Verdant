@@ -14,61 +14,79 @@ import {DataContext} from './DataContext'
 
 import {MyAccount} from "./MyAccount";
 
-var usuarios = [
-  {usuario: "julian@gmail.com",contraseña: "123", nombre: "Julian" , apellido: "Alvarez", tel:"11 5145-5506"},
-  { usuario: "pepe@gmail.com",contraseña: "234",nombre: "Pepe", apellido: "Gomez", tel:"11 4408-2130"},
-  { usuario: "tuti@gmail.com",contraseña: "juan", nombre: "Tuti", apellido: "Sanblas", tel:"11 5145-5506"},
-]
-
 
 
 
 function LogIn(props) {
-  const [user, setUser] = useState(""); 
-  const [contraseña, setContraseña] = useState("");
-  const [error, setError] = useState("");
-  const [action, setAction] = useState("Login");
-  const [denegade,setDenegade] = useState(true);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [activeForm, setActiveForm] = useState('login'); // Estado para controlar qué formulario está activo
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const {account,setAccount} = useContext(DataContext)
+  const { setAccount } = useContext(DataContext); // Usar el contexto
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (action === "Sign Up" ){
-      setUser("")
-      setContraseña("")
-      setDenegade(false)
-      setAction("Login");
-      return;
-    }
-    
-    const cuenta = usuarios.find(cuenta  => cuenta.usuario === user)
-    console.log(cuenta)
-  
-    if (!cuenta) {
-      setError('cuenta no encontrada');
-      setDenegade(true)
+
+    if (activeForm === 'signup') {
+      try {
+        const response = await fetch('http://localhost:3001/api/users/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, email, password }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al registrar usuario');
+        }
+
+        const data = await response.json();
+        console.log('Usuario registrado:', data);
+        setActiveForm('login'); // Cambiar al formulario de login después del registro exitoso
+      } catch (error) {
+        console.error('Error durante el registro:', error);
+        setError('Error al registrar usuario');
+      }
       return;
     }
 
-    if (cuenta.contraseña !== contraseña) {
-      setError("Contraseña incorrecta");
-      setDenegade(true)
-      return;
-    }
-    setError("")
-    setDenegade(false)
-    console.log("¡LogIn exitoso");
-    setAccount(cuenta)
-    navigate('/LayoutCatalogo')
+    try {
+      const response = await fetch('http://localhost:3001/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-  
+      if (!response.ok) {
+        throw new Error('Error al iniciar sesión');
+      }
+
+      const data = await response.json();
+      console.log('Login exitoso:', data);
+      localStorage.setItem('account', JSON.stringify(data));
+      setAccount(data.user);
+      localStorage.setItem('token',data.token)
+      setError('');
+      navigate('/LayoutCatalogo'); // Redireccionar al usuario luego del login exitoso
+    } catch (error) {
+      console.error('Error durante el login:', error);
+      setError('Credenciales incorrectas');
+    }
   };
 
-  
+  const handleToggleForm = () => {
+    setActiveForm(activeForm === 'login' ? 'signup' : 'login'); // Alternar entre 'login' y 'signup'
+    setError('');
+    setUsername('');
+    setEmail('');
+    setPassword('');
+  };
 
   return (
     <div className="login">
@@ -78,67 +96,68 @@ function LogIn(props) {
 
       <div className="contenedorLogin">
         <div className="header-login">
-          <div className="text">{action} </div>
+          <div className="text">{activeForm === 'login' ? 'Login' : 'Sign Up'}</div>
           <div className="underline"> </div>
         </div>
         <div className="inputs">
-          {action === "Login" ? (
+          {activeForm === 'login' ? (
             <div />
           ) : (
             <div className="input">
               <BiSolidUser className="iconos" />
-              <input type="text" placeholder="Name" 
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
           )}
           <div className="input">
             <MdEmail className="iconos" />
-            <input 
-            type="email" 
-            placeholder="Email" 
-            value={user}
-            onChange={(e) => setUser(e.target.value) }
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="input">
             <RiLockPasswordFill className="iconos" />
             <input
-             type="password" 
-             placeholder="Password"
-             value={contraseña}
-             onChange={(e2) => setContraseña(e2.target.value) }
-             />
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-      
-          {action=== "Login"?denegade && <p style={{color:"red"}}> {error}</p>: <></> }
+
+          {activeForm === 'login' && <p style={{ color: 'red' }}> {error}</p>}
         </div>
-        {action === "Sign Up" ? (
-          <div />
-        ) : (
+        {activeForm === 'login' ? (
           <div className="forgot-password">
-            Lost password? <span> Click Here!</span>{" "}
+            Lost password? <span> Click Here!</span>{' '}
           </div>
-        )}
+        ) : null}
         <div className="submit-container">
           <div
-            className={action === "Login" ? "submit gray" : "submit"}
-            onClick={() => {
-              setAction("Sign Up");
-            }}
+            className={activeForm === 'login' ? 'submit gray' : 'submit'}
+            onClick={activeForm === 'login' ? handleToggleForm  : handleSubmit}
           >
-            {" "}
-            Sign Up{" "}
+            {' '}
+            Sign Up{' '}
           </div>
           <div
-            className={action === "Sign Up" ? "submit gray" : "submit"}
-            onClick={handleSubmit}
+            className={activeForm === 'signup' ? 'submit gray' : 'submit'}
+            onClick={activeForm === 'signup' ? handleToggleForm  : handleSubmit}
           >
-            {" "}
-            Log in{" "}
+            {' '}
+            Log in{' '}
           </div>
         </div>
       </div>
     </div>
   );
 }
+
 export default LogIn;

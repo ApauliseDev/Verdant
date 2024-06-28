@@ -48,7 +48,7 @@ export default function AccountMenu(props) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 50, height: 50 }}>  {account.nombre[0]} </Avatar>
+            <Avatar sx={{ width: 50, height: 50 }}>  {account.username[0]}  </Avatar>
           </IconButton>
         </Tooltip>
       </Box>

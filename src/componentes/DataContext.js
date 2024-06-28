@@ -13,7 +13,7 @@ export const  DataProvider = (props) =>{
 
   //Log In
 
-  const [account,setAccount] = useState(localStorage.getItem('account')? JSON.parse(localStorage.getItem('account')) : {}  )
+  const [account, setAccount] = useState(localStorage.getItem('account') ? JSON.parse(localStorage.getItem('account')) : {});
 
 
 const logOut = () => {

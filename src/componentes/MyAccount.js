@@ -25,21 +25,21 @@ export function MyAccount() {
         <div className='esqueleto'>
             <span className='contenerdor-spanUno'>
                 <h2>First name</h2>
-                <p className='parrafo-span'> {account.nombre} </p>
+                <p className='parrafo-span'> {account.username} </p>
             </span>
             <span className='contenerdor-spanUno'>
                 <h2>Last name</h2>
-                <p className='parrafo-span'> {account.apellido}</p>
+                <p className='parrafo-span'> {account.username}</p>
             </span>
         </div>
         <div className='esqueleto'>
             <span className='contenerdor-spanUno'>
                 <h2>Email</h2>
-                <p className='parrafo-span'> {account.usuario }</p>
+                <p className='parrafo-span'> {account.email }</p>
             </span>
             <span className='contenerdor-spanUno'>
                 <h2>Phone number</h2>
-                <p className='parrafo-span'> {account.tel}</p>
+                <p className='parrafo-span'> {account.email}</p>
             </span>
         </div>
     </div>
