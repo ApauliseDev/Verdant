@@ -16,6 +16,10 @@
   /* Agrega otras propiedades de fuente según sea necesario, como font-weight y font-style */
 }
 
+.div-fav-main{
+  height: 100vh;
+}
+
 .div-fav{
   height: 100%;
   margin-bottom: 5%;

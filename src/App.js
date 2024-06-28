@@ -14,7 +14,7 @@ import PelisGrid from './componentes/PelisGrid';
 import Favoritos from './componentes/Favoritos'
 import PelisGeneros from './componentes/PelisGeneros'
 import MyAccount from "./componentes/MyAccount";
-
+import PersonasDetails from "./componentes/PersonasDetails";
 import {DataProvider} from './componentes/DataContext'
 
 // register Swiper custom elements
@@ -36,6 +36,7 @@ function App() {
           <Route path="/Favoritos" element = <Favoritos/> > </Route>
           <Route path="/PelisGeneros" element ={<PelisGeneros/>}></Route>
           <Route path="/MyAccount" element ={<MyAccount/>}></Route>
+          <Route path="/PersonDetails/:name" element={<PersonasDetails />} />
         </Routes>                                                                     
       </div>
       <Footer />

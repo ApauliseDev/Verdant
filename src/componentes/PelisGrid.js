@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { styled } from "@mui/material/styles";
+import { Link, useLocation } from "react-router-dom";
+import axios from 'axios';
+import { DataContext } from './DataContext';
+import Navegador from "./NavBTSP";
+import "../estilos/pelisGrid.css";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
-import Navegador from "./NavBTSP";
-import "../estilos/pelisGrid.css";
-import { Link, useLocation } from "react-router-dom";
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import axios from 'axios';
-import { DataContext } from './DataContext';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { styled } from "@mui/material/styles";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -31,7 +31,6 @@ function PelisGrid() {
   const location = useLocation();
   const API_URL = 'https://api.themoviedb.org/3';
   const API_KEY = '0023db00b52250d5bed5debec71d21fb';
-  const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
   const URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
   // Watchlist
@@ -164,7 +163,7 @@ function PelisGrid() {
       <Navegador items={elementosMenu2} />
 
       <div className="contenedor-titulo-peliculas">
-        <h2 style={{ fontSize: "36px" }}>Peliculas</h2>
+        <h2 style={{ fontSize: "36px" }}>Movies</h2>
         <div>
           <button
             id="BotonesGeneros"
