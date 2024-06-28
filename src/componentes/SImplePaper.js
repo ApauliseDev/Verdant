@@ -58,7 +58,7 @@ function SimplePaper() {
       case "Guerra":
         return 10752;
       case "Comedia":
-        return 35;
+        return 35; 
       case "Terror":
         return 27;
       case "Aventura":
@@ -86,10 +86,12 @@ function SimplePaper() {
         }}
       >
         {Object.entries(genreMovies).map(([genre, movie]) => (
-          <Link 
-
-          state={{ genreID: genre }}
-          className="link-papers" to={`/PelisGrid`} key={genre}>
+          <Link
+            state={{ genreID: getGenreId(genre) }} // Aquí agregamos el ID del género al estado
+            className="link-papers"
+            to={`/PelisGrid`}
+            key={genre}
+          >
             <Paper
               id="Paper-id"
               elevation={3}
@@ -120,7 +122,7 @@ function SimplePaper() {
                 variant="h6"
                 sx={{
                   position: "absolute",
-                  color:"#fff",
+                  color: "#fff",
                   bottom: 10,
                   zIndex: 1,
                 }}

@@ -5,8 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import Navegador from "./NavBTSP";
 import "../estilos/pelisGrid.css";
-import CustomizedMenus from "./CustomizedMenus";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios';
 import { DataContext } from './DataContext';
@@ -29,6 +28,7 @@ const elementosMenu2 = [
 ];
 
 function PelisGrid() {
+  const location = useLocation();
   const API_URL = 'https://api.themoviedb.org/3';
   const API_KEY = '0023db00b52250d5bed5debec71d21fb';
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
@@ -99,6 +99,14 @@ function PelisGrid() {
     fetchMoviesByGenres();
   }, [selectedGenres]);
 
+  useEffect(() => {
+    if (location.state?.genreID) {
+      const genreID = location.state.genreID;
+      setSelectedGenres([genreID]);
+      setActiveGenres([genreID]);
+    }
+  }, [location.state]);
+
   const toggleGenre = (genreId) => {
     if (selectedGenres.includes(genreId)) {
       setSelectedGenres(selectedGenres.filter(id => id !== genreId));
@@ -132,9 +140,9 @@ function PelisGrid() {
     }
   };
 
-  const fetchSearchMovies = async (searchKey) => {
+  const fetchSearchResults = async (searchKey) => {
     try {
-      const { data: { results } } = await axios.get(`${API_URL}/search/movie`, {
+      const { data: { results } } = await axios.get(`${API_URL}/search/multi`, {
         params: {
           api_key: API_KEY,
           query: searchKey,
@@ -142,11 +150,14 @@ function PelisGrid() {
         },
       });
 
-      const filteredResults = results.filter(result => result.poster_path !== null);
+      const filteredResults = results.filter(result =>
+        (result.media_type === "movie" && result.poster_path !== null) ||
+        (result.media_type === "person" && result.profile_path !== null)
+      );
       setMovielist(filteredResults);
       setMovie(filteredResults[0]);
     } catch (error) {
-      console.error("Error fetching movies:", error);
+      console.error("Error fetching search results:", error);
     }
   };
 
@@ -164,7 +175,7 @@ function PelisGrid() {
 
   useEffect(() => {
     if (searchKey) {
-      fetchSearchMovies(searchKey);
+      fetchSearchResults(searchKey);
     } else {
       fetchTrendingMovies();
     }
@@ -173,7 +184,7 @@ function PelisGrid() {
   const searchMovies = (e) => {
     e.preventDefault();
     setPage(1);
-    fetchSearchMovies(searchKey);
+    fetchSearchResults(searchKey);
   };
 
   return (
@@ -199,8 +210,8 @@ function PelisGrid() {
           </button>
           <button
             id="BotonesGeneros"
-            onClick={() => { toggleGenre(16) }}
-            className={activeGenres.includes(16) ? 'active' : ''}
+            onClick={() => { toggleGenre(35) }}
+            className={activeGenres.includes(35) ? 'active' : ''}
           >
             Comedy
           </button>
@@ -242,11 +253,14 @@ function PelisGrid() {
               <Item className="img-grid">
                 {item.media_type === "person" ? (
                   <Link to={`/PersonDetails/${item.name}`} state={{ personDetails: item }}>
-                    <img
-                      src={`${URL_IMAGE + item.profile_path}`}
-                      alt={item.name}
-                      style={{ borderRadius: "16px", width: "100%", height: "100%" }}
-                    />
+                    <div className="overlay-container">
+                      <img
+                        src={`${URL_IMAGE + item.profile_path}`}
+                        alt={item.name}
+                        style={{ borderRadius: "16px", width: "100%", height: "100%" }}
+                      />
+                      <div className="overlay-text">{item.name}</div>
+                    </div>
                   </Link>
                 ) : (
                   <Link to={`/LayoutPeliculas/${item.original_title}`} state={{ movieDetails: item }}>
@@ -267,6 +281,7 @@ function PelisGrid() {
             </Grid>
           ))}
         </Grid>
+
         <div className="load-buttons" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
           <button onClick={loadLessMovies}>{<ArrowBackIosIcon />} Previous</button>
           <button onClick={loadMoreMovies}>Next {<ArrowForwardIosIcon />}</button>
