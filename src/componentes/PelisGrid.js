@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import Navegador from "./NavBTSP";
 import "../estilos/pelisGrid.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import axios from 'axios';
 import { DataContext } from './DataContext';
@@ -28,6 +28,7 @@ const elementosMenu2 = [
 ];
 
 function PelisGrid() {
+  const location = useLocation();
   const API_URL = 'https://api.themoviedb.org/3';
   const API_KEY = '0023db00b52250d5bed5debec71d21fb';
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
@@ -69,6 +70,14 @@ function PelisGrid() {
   useEffect(() => {
     fetchMoviesByGenres();
   }, [selectedGenres]);
+
+  useEffect(() => {
+    if (location.state?.genreID) {
+      const genreID = location.state.genreID;
+      setSelectedGenres([genreID]);
+      setActiveGenres([genreID]);
+    }
+  }, [location.state]);
 
   const toggleGenre = (genreId) => {
     if (selectedGenres.includes(genreId)) {
@@ -124,7 +133,6 @@ function PelisGrid() {
     }
   };
 
-
   const loadMoreMovies = () => {
     window.scrollTo(0, 0);
     setPage(page + 1);
@@ -151,7 +159,6 @@ function PelisGrid() {
     fetchSearchResults(searchKey);
   };
 
-
   return (
     <>
       <Navegador items={elementosMenu2} />
@@ -175,8 +182,8 @@ function PelisGrid() {
           </button>
           <button
             id="BotonesGeneros"
-            onClick={() => { toggleGenre(16) }}
-            className={activeGenres.includes(16) ? 'active' : ''}
+            onClick={() => { toggleGenre(35) }}
+            className={activeGenres.includes(35) ? 'active' : ''}
           >
             Comedy
           </button>
@@ -244,7 +251,6 @@ function PelisGrid() {
                 )}
               </Item>
             </Grid>
-
           ))}
         </Grid>
 
