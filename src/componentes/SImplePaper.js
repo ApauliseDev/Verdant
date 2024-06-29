@@ -29,7 +29,7 @@ function SimplePaper() {
   useEffect(() => {
     const fetchGenreMovies = async () => {
       try {
-        const genres = ["Romance", "Guerra", "Comedia", "Terror", "Aventura"];
+        const genres = ["Romance", "War", "Comedy", "Horror", "Aventure"];
         const genreMoviesData = {};
 
         for (const genre of genres) {
@@ -55,13 +55,13 @@ function SimplePaper() {
     switch (genre) {
       case "Romance":
         return 10749;
-      case "Guerra":
+      case "War":
         return 10752;
-      case "Comedia":
+      case "Comedy":
         return 35; 
-      case "Terror":
+      case "Horror":
         return 27;
-      case "Aventura":
+      case "Aventure":
         return 12;
       default:
         return null;

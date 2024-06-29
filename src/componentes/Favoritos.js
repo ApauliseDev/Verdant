@@ -168,97 +168,90 @@ function Favoritos() {
         > Favorites  </button>
         </div>
 
-        <Grid container spacing={0.1}>
-          {envistas ?
-            vistas.map((movie) => (
-              <Grid xs={6} md={4} lg={3} xl={2.4}>
-                <Item className="img-grid">
-                  <Link
-                    key={movie.id}
-                    to={`/LayoutPeliculas/${movie.original_title}`}
-                    state={{ movieDetails: movie }}
-                  >
-                    <img
-                      src={`${URL_IMAGE + movie.poster_path}`}
-                      alt="guerra"
-                      style={{
-                        borderRadius: "16px",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  </Link>
-                  <div style={{ display: "flex", position: "absolute" }}>
-                    <button
-                      style={{ border: "none", background: "none", position: "relative" }}
-                      id="boton-poster"
-                      onClick={() => {
-                        removeFromVistas(movie)
-                      }}
-                    > {<RemoveCircleOutlineIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
+          <Grid container spacing={0.1}>
+            {envistas ?
+              vistas.map((movie) => (
+                <Grid xs={6} md={4} lg={3} xl={2.4}>
+                  <Item className="img-grid">
+                    <Link
+                      key={movie.id}
+                      to={`/LayoutPeliculas/${movie.original_title}`}
+                      state={{ movieDetails: movie }}
+                    >
+                      <img
+                        src={`${URL_IMAGE + movie.poster_path}`}
+                        alt="guerra"
+                        style={{
+                          borderRadius: "16px",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </Link>
+                    <div style={{ display: "flex", position: "absolute" }}>
+                      <button
+                        style={{ border: "none", background: "none", position: "relative" }}
+                        id="boton-poster"
+                        onClick={() => {
+                          removeFromVistas(movie)
+                        }}
+                      > {<RemoveCircleOutlineIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
 
-                    <button
-                      style={{ border: "none", background: "none", position: "relative" }}
-                      id="boton-poster"
-                      onClick={() => {
-                        addToWatchList(movie)
+                      <button
+                        style={{ border: "none", background: "none", position: "relative" }}
+                        id="boton-poster"
+                        onClick={() => {
+                          addToWatchList(movie)
 
-                      }}
+                        }}
+                      > {<RemoveRedEyeIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button> </div>
+                  </Item>
+                </Grid>
+              ))
+              : porver ? porver.map((movie) => (
+                <Grid xs={6} md={4} lg={3} xl={2.4}>
+                  <Item className="img-grid">
+                    <Link
+                      key={movie.id}
+                      to={`/LayoutPeliculas/${movie.original_title}`}
+                      state={{ movieDetails: movie }}
+                    >
+                      <img
+                        src={`${URL_IMAGE + movie.poster_path}`}
+                        alt="guerra"
+                        style={{
+                          borderRadius: "16px",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </Link>
+                    <div style={{ display: "flex", position: "absolute" }}>
+                      <button
+                        style={{ border: "none", background: "none", position: "relative" }}
+                        id="boton-poster"
+                        onClick={() => {
+                          removeFromPorver(movie)
+                        }}
+                      > {<RemoveCircleOutlineIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
+
+                      <button
+                        style={{ border: "none", background: "none", position: "relative" }}
+                        id="boton-poster"
+                        onClick={() => {
+                          addToWatched(movie)
+                        }}
+
                     > {<RemoveRedEyeIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button> </div>
-                </Item>
-              </Grid>
-            ))
-            : porver ? porver.map((movie) => (
-              <Grid xs={6} md={4} lg={3} xl={2.4}>
-                <Item className="img-grid">
-                  <Link
-                    key={movie.id}
-                    to={`/LayoutPeliculas/${movie.original_title}`}
-                    state={{ movieDetails: movie }}
-                  >
-                    <img
-                      src={`${URL_IMAGE + movie.poster_path}`}
-                      alt="guerra"
-                      style={{
-                        borderRadius: "16px",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  </Link>
-                  <div style={{ display: "flex", position: "absolute" }}>
-                    <button
-                      style={{ border: "none", background: "none", position: "relative" }}
-                      id="boton-poster"
-                      onClick={() => {
-                        removeFromPorver(movie)
-                      }}
-                    > {<RemoveCircleOutlineIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
 
-                    <button
-                      style={{ border: "none", background: "none", position: "relative" }}
-                      id="boton-poster"
-                      onClick={() => {
-                        addToWatched(movie)
-                      }}
-
-                    > {<RemoveRedEyeIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
-                    <button
-                      style={{ border: "none", background: "none", position: "relative" }}
-                      id="boton-poster"
-                    > {<StarOutlineIcon style={{ border: "none", color: "#5AD635", fontSize: "50px" }} />}</button>
-
-              
-                    </div>
-
-                </Item>
-              </Grid>
-            )) : null
-          }
-        </Grid>
-      </Box>
+                  </Item>
+                </Grid>
+              )) : null
+            }
+          </Grid>
+        </Box>
+      </div>
     </div>
-    
   )
 }
 
